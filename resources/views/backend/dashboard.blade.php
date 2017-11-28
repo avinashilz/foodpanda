@@ -9,7 +9,7 @@
 
 @section('content')
     <div class="row"> <div class="col-sm-6"> 
-        <a href="{{ route('admin.addresuarantform')}}">
+        <a href="{{ route('admin.addrestaurantform')}}">
        {{Form::submit('Restaurant',['class' => 'btn'])}}</a> 
     </div>
 </div>

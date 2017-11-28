@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 @section('content') 
 
-{{ Form::open(['route' => 'admin.addresuarant', 'files' => true]) }} 
+{{ Form::open(['route' => 'admin.addrestaurant', 'files' => true]) }} 
 {{ csrf_field() }}
 
 

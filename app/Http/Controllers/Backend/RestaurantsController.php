@@ -9,7 +9,7 @@ class RestaurantsController extends Controller
 {
     public function index()
     {
-        return view('backend.addresturant');
+        return view('backend.addrestaurant');
     }
     public function addrestaurant(Request $request)
     {
@@ -21,11 +21,11 @@ class RestaurantsController extends Controller
             'contact_person' => 'required'
         ]);
         
-        $resturant = new Restaurant;
-        $resturant->name = request('name');
-        $resturant->address = request('address');
-        $resturant->phone = request('phone');
-        $resturant->contact_person = request('contact_person');
+        $restaurant = new Restaurant;
+        $restaurant->name = request('name');
+        $restaurant->address = request('address');
+        $restaurant->phone = request('phone');
+        $restaurant->contact_person = request('contact_person');
 //        $resturant->name = request('name');
 //        $resturant->name = request('name');
         
