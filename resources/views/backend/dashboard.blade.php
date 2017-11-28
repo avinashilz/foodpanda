@@ -9,9 +9,8 @@
 
 @section('content')
     <div class="row"> <div class="col-sm-6"> 
-        <a href="{{ route('admin.addresuarant')}}">
-            <button class="btn btn-primary">Add Resturant</button>
-        </a> 
+        <a href="{{ route('admin.addresuarantform')}}">
+       {{Form::submit('Resturant',['class' => 'btn'])}}</a> 
     </div>
 </div>
 @endsection
