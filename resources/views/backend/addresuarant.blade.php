@@ -1,45 +1,61 @@
 @extends('backend.layouts.app')
 @section('content') 
 
-{{ Form::open(['route' => 'admin.dashboard', 'files' => true]) }} 
+{{ Form::open(['route' => 'admin.addresuarant', 'files' => true]) }} 
 {{ csrf_field() }}
 
 
-<div class="form-group">
-    <label for="name">Resturant Name </label>
-    <input type="text" class="form-control" id="name" name="name">
+<div class="row"> <div class="col-sm-6">
+        <label for="name">Resturant Name </label> 
+    </div>
+    <div class="col-sm-6"> 
+        <input type="text" class="form-control" id="name" name="name">
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="name">Longitude </label>
-    <input type="text" class="form-control" id="longitude" name="longitude">
+<div class="row"> <div class="col-sm-6">
+        <label for="name">Longitude </label> 
+    </div>
+    <div class="col-sm-6"> <input type="text" class="form-control" id="longitude" name="longitude">
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="name">Latitude </label>
-    <input type="text" class="form-control" id="latitude" name="latitude">
+<div class="row"> <div class="col-sm-6">
+        <label for="name">Latitude </label>
+    </div>
+    <div class="col-sm-6"><input type="text" class="form-control" id="latitude" name="latitude">
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="name">Address </label>
-    <input type="text" class="form-control" id="address" name="address">
+<div class="row"> <div class="col-sm-6">
+        <label for="name">Address </label>  </div>
+    <div class="col-sm-6">   <input type="text" class="form-control" id="address" name="address">
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="name">Contact Person </label>
-    <input type="text" class="form-control" id="contact" name="contact">
+<div class="row"> <div class="col-sm-6">
+        <label for="name">Contact Number </label>  </div>
+    <div class="col-sm-6">   <input type="number" class="form-control" id="number" name="number">
+    </div>
 </div>
 
-<div class="form-group">
-    <label for="name">Delivery Radius </label>
-    <input type="text" class="form-control" id="contact" name="contact">
+<div class="row"> <div class="col-sm-6">
+        <label for="name">Contact Person </label> </div>
+    <div class="col-sm-6">     <input type="text" class="form-control" id="contact" name="contact">
+    </div>
 </div>
 
-<div class="form-group"> 
-    <a href="{{ route('admin.dashboard')}}">
-        <button class="btn btn-primary">Add</button>
-    </a> 
+<div class="row"> <div class="col-sm-6">  
+        <label for="name">Delivery Radius </label>  </div>
+    <div class="col-sm-6">   <input type="text" class="form-control" id="contact" name="contact">
+    </div>  
 </div>
 
+<div class="row"> <div class="col-sm-6"> 
+        <a href="{{ route('admin.dashboard')}}">
+            <button class="btn btn-primary">Add</button>
+        </a> 
+    </div>
+</div>
 
 @endsection
