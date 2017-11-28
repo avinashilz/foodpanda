@@ -6,7 +6,7 @@
 
 
 <div class="form-group">
-    <label for="name">Resturant Name</label>
+    <label for="name">Resturant Name </label>
     <input type="text" class="form-control" id="name" name="name">
 </div>
 
