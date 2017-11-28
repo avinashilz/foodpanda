@@ -6,54 +6,64 @@
 
 
 <div class="row"> <div class="col-sm-6">
-        <label for="name">Resturant Name </label> 
+       {{ Form::label('name','Resturant Name') }}
     </div>
     <div class="col-sm-6"> 
-        <input type="text" class="form-control" id="name" name="name">
+        {{Form::text('name')}}
     </div>
 </div>
 
 <div class="row"> <div class="col-sm-6">
-        <label for="name">Longitude </label> 
+       {{ Form::label('longitude', 'Longitude') }}
     </div>
-    <div class="col-sm-6"> <input type="text" class="form-control" id="longitude" name="longitude">
-    </div>
-</div>
-
-<div class="row"> <div class="col-sm-6">
-        <label for="name">Latitude </label>
-    </div>
-    <div class="col-sm-6"><input type="text" class="form-control" id="latitude" name="latitude">
+    <div class="col-sm-6"> 
+        {{Form::text('longitude')}}
     </div>
 </div>
 
 <div class="row"> <div class="col-sm-6">
-        <label for="name">Address </label>  </div>
-    <div class="col-sm-6">   <input type="text" class="form-control" id="address" name="address">
+       {{ Form::label('latitude', 'Latitude') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{Form::text('latitude')}}
     </div>
 </div>
 
 <div class="row"> <div class="col-sm-6">
-        <label for="name">Contact Number </label>  </div>
-    <div class="col-sm-6">   <input type="number" class="form-control" id="number" name="number">
+       {{ Form::label('address', 'Address') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{ Form::textarea('address') }}
     </div>
 </div>
 
 <div class="row"> <div class="col-sm-6">
-        <label for="name">Contact Person </label> </div>
-    <div class="col-sm-6">     <input type="text" class="form-control" id="contact" name="contact">
+       {{ Form::label('number', 'Contact Number') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{Form::number('number')}}
     </div>
 </div>
 
-<div class="row"> <div class="col-sm-6">  
-        <label for="name">Delivery Radius </label>  </div>
-    <div class="col-sm-6">   <input type="text" class="form-control" id="contact" name="contact">
-    </div>  
+<div class="row"> <div class="col-sm-6">
+       {{ Form::label('person', 'Contact Person') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{Form::text('person')}}
+    </div>
+</div>
+
+<div class="row"> <div class="col-sm-6">
+       {{ Form::label('radius', 'Delivery Radius') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{Form::text('radius')}}
+    </div>
 </div>
 
 <div class="row"> <div class="col-sm-6"> 
         <a href="{{ route('admin.dashboard')}}">
-            <button class="btn btn-primary">Add</button>
+            {{Form::submit('Add',['class' => 'btn'])}}
         </a> 
     </div>
 </div>
