@@ -17,7 +17,7 @@
        {{ Form::label('address', 'Address') }}
     </div>
     <div class="col-sm-6"> 
-        {{ Form::textarea('address','',['rows'=>'5']) }}
+        {{ Form::textarea('address','',['rows'=>'3']) }}
     </div>
 </div>
 
@@ -45,11 +45,25 @@
     </div>
 </div>
 
+<div class="row"> <div class="col-sm-6">
+       {{ Form::label('latitude', 'Latitude') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{Form::number('latitude','',['class'=>'textfield'])}}
+    </div>
+</div>
 
+<div class="row"> <div class="col-sm-6">
+       {{ Form::label('longitude', 'Longitude') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{Form::number('longitude','',['class'=>'textfield'])}}
+    </div>
+</div>
 
 <div class="row"> <div class="col-sm-6"> 
         <a href="{{ route('admin.dashboard')}}">
-            {{Form::submit('Add',['class' => 'btn'])}}
+            {{Form::submit('Add',['class' => 'btn btn-success'])}}
         </a> 
     </div>
 </div>
