@@ -19,9 +19,10 @@
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
         @langRTL
-            {{ Html::style(getRtlCss(mix('css/backend.css'))) }}
+            {{ Html::style(getRtlCss('css/backend.css')) }}
         @else
-            {{ Html::style(mix('css/backend.css')) }}
+            {{ Html::style('css/backend.css') }}
+            {{ Html::style('css/addrest.css') }}
         @endif
 
         @yield('after-styles')
