@@ -21,6 +21,14 @@ class ResturantsController extends Controller
             'contact_person' => 'required'
         ]);
         
+        $resturant = new Resturant;
+        $resturant->name = request('name');
+        $resturant->address = request('address');
+        $resturant->phone = request('phone');
+        $resturant->contact_person = request('contact_person');
+//        $resturant->name = request('name');
+//        $resturant->name = request('name');
+        
         
         
         return redirect()->route('admin.dashboard');
