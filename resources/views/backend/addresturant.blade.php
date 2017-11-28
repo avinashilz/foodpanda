@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 @section('content') 
 
-{{ Form::open(['route' => 'admin.dashboard', 'files' => true]) }} 
+{{ Form::open(['route' => 'admin.addresturant', 'files' => true]) }} 
 {{ csrf_field() }}
 
 
@@ -10,9 +10,9 @@
     <input type="text" class="form-control" id="name" name="name">
 </div>
 
-<div class="form-group">
+<div class="form-group">  
     <label for="name">Longitude </label>
-    <input type="text" class="form-control" id="longitude" name="longitude">
+    {{ Form::textarea('email', null, ['class  ' => 'awesome', 'cols' => 20]) }}
 </div>
 
 <div class="form-group">

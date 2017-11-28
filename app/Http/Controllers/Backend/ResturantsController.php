@@ -9,10 +9,20 @@ class ResturantsController extends Controller
 {
     public function index()
     {
-        return view('backend.addresuarant');
+        return view('backend.addresturant');
     }
-    public function addresuarant()
+    public function addresuarant(Request $request)
     {
-        return back();
+//        dd($request->toArray());
+        $this->validate(request(), [
+            'name' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'contact_person' => 'required'
+        ]);
+        
+        
+        
+        return redirect()->route('admin.dashboard');
     }
 }
