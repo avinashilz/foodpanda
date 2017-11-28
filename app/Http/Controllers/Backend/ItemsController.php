@@ -8,9 +8,9 @@ class ItemsController extends Controller
 {
     public function index()
     {
-        return view('backend.addmenu');
+        return view('backend.additemform');
     }
-    public function addmenu(Request $request)
+    public function additem(Request $request)
     {
 //        dd($request->toArray());
         $this->validate(request(), [

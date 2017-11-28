@@ -48,7 +48,7 @@ class RestaurantsController extends Controller {
 //            dd($latitude);
 //        }
         dd('No longitude');
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.additemform');
     }
 
 }
