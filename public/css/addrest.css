@@ -1,4 +1,4 @@
 .row{margin: 10px 10px;}
 .col-sm-6 .textfield{ width:50%; height: 30px;  }
 label{font-size: 26px; color: #0768b5; padding-left: 50%;}
-.btn{height: 45px; width: 75px; font-size: 20px;}
+.btn{height: 45px; width: 75px; font-size: 20px; float:right;}
