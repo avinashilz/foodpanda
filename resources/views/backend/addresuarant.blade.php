@@ -6,10 +6,10 @@
 
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('name','Resturant Name') }}
+       {{ Form::label('name','Restaurant Name') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::text('name')}}
+        {{Form::text('name',['class'=>'awesome'])}}
     </div>
 </div>
 
