@@ -37,6 +37,14 @@
     </div>
 </div>
 
+<div class="row"> <div class="col-sm-6">
+       {{ Form::label('delivery_radius', 'Delivery Radius') }}
+    </div>
+    <div class="col-sm-6"> 
+        {{Form::number('delivery_radius','',['class'=>'textfield'])}}
+    </div>
+</div>
+
 
 
 <div class="row"> <div class="col-sm-6"> 
