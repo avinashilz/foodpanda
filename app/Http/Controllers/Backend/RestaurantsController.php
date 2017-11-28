@@ -5,13 +5,13 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class ResturantsController extends Controller
+class RestaurantsController extends Controller
 {
     public function index()
     {
         return view('backend.addresturant');
     }
-    public function addresuarant(Request $request)
+    public function addrestaurant(Request $request)
     {
 //        dd($request->toArray());
         $this->validate(request(), [
@@ -21,7 +21,7 @@ class ResturantsController extends Controller
             'contact_person' => 'required'
         ]);
         
-        $resturant = new Resturant;
+        $resturant = new Restaurant;
         $resturant->name = request('name');
         $resturant->address = request('address');
         $resturant->phone = request('phone');
