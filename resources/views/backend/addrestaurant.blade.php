@@ -9,7 +9,7 @@
        {{ Form::label('name','Restaurant Name') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::text('name',['class'=>'awesome'])}}
+        {{Form::text('name','',['class'=>'textfield'])}}
     </div>
 </div>
 
@@ -17,7 +17,7 @@
        {{ Form::label('longitude', 'Longitude') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::text('longitude')}}
+        {{Form::text('longitude','',['class'=>'textfield'])}}
     </div>
 </div>
 
@@ -25,7 +25,7 @@
        {{ Form::label('latitude', 'Latitude') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::text('latitude')}}
+        {{Form::text('latitude','',['class'=>'textfield'])}}
     </div>
 </div>
 
@@ -33,7 +33,7 @@
        {{ Form::label('address', 'Address') }}
     </div>
     <div class="col-sm-6"> 
-        {{ Form::textarea('address') }}
+        {{ Form::textarea('address','',['rows'=>'5']) }}
     </div>
 </div>
 
