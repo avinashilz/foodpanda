@@ -9,5 +9,6 @@ Route::get('dashboard/addresturant', 'ResturantsController@index')->name('addres
 
 Route::post('addresturant', 'ResturantsController@addresuarant')->name('addresturant');
 
-//Route::get('dashboard/addmenu', 'ResturantsController@index')->name('addresturantform');
+Route::get('dashboard/addmenu', 'MenusController@index')->name('addmenuform');
 
+Route::post('addmenu', 'MenusController@addmenu')->name('addmenu');
