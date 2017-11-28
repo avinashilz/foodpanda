@@ -22,18 +22,18 @@
 </div>
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('person', 'Contact Person') }}
+       {{ Form::label('contact_person', 'Contact Person') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::text('person')}}
+        {{Form::text('contact_person','',['class'=>'textfield'])}}
     </div>
 </div>
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('number', 'Contact Number') }}
+       {{ Form::label('phone', 'Contact Number') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('number')}}
+        {{Form::number('phone','',['class'=>'textfield'])}}
     </div>
 </div>
 
