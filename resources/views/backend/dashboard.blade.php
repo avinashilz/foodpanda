@@ -8,5 +8,10 @@
 @endsection
 
 @section('content')
-    
+    <div class="row"> <div class="col-sm-6"> 
+        <a href="{{ route('admin.addresuarant')}}">
+            <button class="btn btn-primary">Add Resturant</button>
+        </a> 
+    </div>
+</div>
 @endsection
