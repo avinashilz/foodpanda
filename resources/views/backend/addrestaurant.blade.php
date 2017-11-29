@@ -1,8 +1,13 @@
 @extends('backend.layouts.app')
-@section('content') 
+@section('content')
 
 {{ Form::open(['route' => 'admin.addrestaurant', 'files' => true]) }} 
 {{ csrf_field() }}
+<div class="row"> 
+    <a href="{{ route('admin.dashboard')}}">
+        {{Form::submit('Back',['class' => 'btn btn-warning'])}}
+    </a> 
+</div>
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('name','Restaurant Name') }}
     </div>
@@ -42,7 +47,7 @@
 {{Form::hidden('latitude','30.698422',['class'=>'textfield'])}}
 {{Form::hidden('longitude','76.691051',['class'=>'textfield'])}}
 <div class="row"> <div class="col-sm-6">
-         {{ Form::label('image', 'Upload Image') }}
+        {{ Form::label('image', 'Upload Image') }}
     </div>
     <div class="col-sm-6"> {{ Form::file('image') }} </div>
 
@@ -51,10 +56,10 @@
         {{ Form::label('restaurant_feature', 'Restaurant Feature') }}
     </div>
     <div class="col-sm-6"> 
-        
+
         {{Form::radio('radio', '1')}}
         {{ Form::label('yes', 'Yes',["class"=>'bool']) }}
-        
+
         {{Form::radio('radio', '0')}}
         {{ Form::label('no', 'No',["class"=>'bool']) }}
     </div>
