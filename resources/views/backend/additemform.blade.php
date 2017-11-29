@@ -5,7 +5,7 @@
 {{ csrf_field() }}
 <div class="row"> 
     <a href="{{ route('admin.dashboard')}}">
-        {{Form::submit('Back',['class' => 'btn btn-warning'])}}
+        {{Form::button('Back',['class' => 'btn btn-warning'])}}
     </a> 
 </div>
 <div class="row"> <div class="col-sm-6">
