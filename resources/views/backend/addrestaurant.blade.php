@@ -51,10 +51,12 @@
         {{ Form::label('restaurant_feature', 'Restaurant Feature') }}
     </div>
     <div class="col-sm-6"> 
+        
+        {{Form::radio('radio', '1')}}
         {{ Form::label('yes', 'Yes',["class"=>'bool']) }}
-        {{Form::radio('name', 'value')}}
+        
+        {{Form::radio('radio', '0')}}
         {{ Form::label('no', 'No',["class"=>'bool']) }}
-        {{Form::radio('name', 'value')}}
     </div>
 </div>
 <div class="row"> <div class="col-sm-6"> 
