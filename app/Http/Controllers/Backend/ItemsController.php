@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
 use App\Models\Restaurant;
+use App\Models\Category;
+use App\Models\Item;
+
 
 class ItemsController extends Controller
 {
@@ -30,12 +32,13 @@ class ItemsController extends Controller
             'price' => 'required',
         ]);
         
-        
-        
-        
         $item = new Item;
         $item->name = request('name');
         $item->price = request('price');
+        $item->resturants_id = request('restaurant');
+        $item->category_id = request('categories');
+        
+        $item->save();
         
         
         return redirect()->route('admin.dashboard');
