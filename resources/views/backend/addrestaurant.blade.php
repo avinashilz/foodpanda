@@ -3,8 +3,6 @@
 
 {{ Form::open(['route' => 'admin.addrestaurant', 'files' => true]) }} 
 {{ csrf_field() }}
-
-
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('name','Restaurant Name') }}
     </div>
@@ -12,7 +10,6 @@
         {{Form::text('name','',['class'=>'textfield'])}}
     </div>
 </div>
-
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('address', 'Address') }}
     </div>
@@ -20,7 +17,6 @@
         {{ Form::textarea('address','',['class'=>'textfield','rows'=>'3']) }}
     </div>
 </div>
-
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('contact_person', 'Contact Person') }}
     </div>
@@ -28,7 +24,6 @@
         {{Form::text('contact_person','',['class'=>'textfield'])}}
     </div>
 </div>
-
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('phone', 'Contact Number') }}
     </div>
@@ -62,12 +57,10 @@
         {{Form::radio('name', 'value')}}
     </div>
 </div>
-
 <div class="row"> <div class="col-sm-6"> 
         <a href="{{ route('admin.dashboard')}}">
             {{Form::submit('Add',['class' => 'btn btn-success'])}}
         </a> 
     </div>
 </div>
-
 @endsection
