@@ -19,22 +19,34 @@ class RestaurantsController extends Controller {
             'contact_person' => 'required',
             'phone' => 'required',
             'delivery_radius' => 'required',
-            'longitude' => 'required',
-            'latitude' => 'required',
+//          
         ]);
 
-        dd($request->toArray());
+//        dd($request->toArray());
         $restaurant = new Restaurant;
         $restaurant->name = request('name');
         $restaurant->address = request('address');
         $restaurant->contact_person = request('contact_person');
         $restaurant->phone = request('phone');
-        $resturant->longitude = request('longitude');
-        $resturant->latitude = request('latitude');
-        $resturant->delivery_radius = request('delivery_radius');
-        $resturant->featured_resturant = 1;
+        $restaurant->longitude = request('longitude');
+//        dd($restaurant->longitude);
+        $restaurant->latitude = request('latitude');
+        $restaurant->delivery_radius = request('delivery_radius');
+        $restaurant->featured_resturant = request('radio');
+        
+        
+        if ($request->hasFile('image')) {
+            $media = $request->file('image');
+            $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
+            $destinationPath = public_path('/uploads');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            } 
+            $request->file('image')->move($destinationPath, $name);
+            $restaurant->image = $name;
+        }
 
-        $resturant->save();
+        $restaurant->save();
 
 //        $address = $restaurant->address; // Address
 ////        dd($address);
@@ -47,7 +59,7 @@ class RestaurantsController extends Controller {
 //            $longitude = $geo['results'][0]['geometry']['location']['lng']; // Longitude
 //            dd($latitude);
 //        }
-        dd('No longitude');
+        
         return redirect()->route('admin.additemform');
     }
 
