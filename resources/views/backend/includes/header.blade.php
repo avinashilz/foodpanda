@@ -1,6 +1,5 @@
 
 <header class="">
-
     <div class="container">
         <div class="header-mobile-item left">
             <i class="icon icon-more mobile-menu__menu-toggle"></i>
@@ -54,7 +53,5 @@
                     </ul>
                 </li>
         </ul>
-
-       
     </div>
 </header>
