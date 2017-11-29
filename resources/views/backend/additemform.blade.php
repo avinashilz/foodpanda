@@ -7,7 +7,7 @@
         {{ Form::label('select','Select Category') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Choose an Item...'])}}
+        {{Form::select('size', ['snacks' => 'Snacks', 'maincourse' => 'Main Course','breads'=>'Bread','deserts'=>'Deserts'], null, ['placeholder' => 'Choose an Item...'])}}
     </div>
 </div>
 <div class="row"> <div class="col-sm-6">
