@@ -6,11 +6,160 @@ label{font-size: 26px; color: #0768b5; padding-left: 50%;}
     padding-left: 0px;
 }
 
+/*header*/
+.homepage-area-selection-container {
+    background-size: cover;
+    background-position: center;
+    box-shadow: inset 0 6px 8px -6px rgba(0,0,0,.1);
+    position: relative;
+}
 .content-wrapper{margin-left: 0px;}
-header{background-color: #ea5b31;}
+header{background-color: #ea5b31;
+       height:65px;
+       position:relative;
+       min-height: 40px;
+       background-color: #ea5b31;
+       color: #fff;
+       padding: 0;
+       z-index: 1011;
+       font-size: 15px;
+       font-weight: lighter;
+       display:block;}
 .header-logo{ float: left;}
 #header{float:right; list-style: none;}
 
+.homepage-area-selection-container .js-change-location-box-add-target {
+    position: relative;
+    z-index: 3;
+}
+.vendors-heading-container {
+    min-height: 300px;
+}
+.homepage-area-selection-container .container {
+    -webkit-animation: fadein 2s;
+    animation: fadein 2s;
+    position: relative;
+    z-index: 2;
+}
+
+.container {
+    width: 1160px;
+}
+.vendors-heading-container .vendors-heading {
+    position: relative;
+    padding-top: 100px;
+}
+.vendors-heading-container .vendors-heading h1 {
+    font-family: inherit;
+
+    line-height: 1.1;
+
+    margin-top: 20px;
+
+
+
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 40px;
+    font-weight: 300;
+    color: #ea5b31;
+    text-align: center;
+    vertical-align: middle;
+}
+.vendors-heading-container .vendors-heading h2 {
+    margin: 0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 15px;
+}
+.location-header {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255,255,255,.85);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.location-header .container {
+    text-align: center;
+    font-weight: 300;
+    color: #1c2c3a;
+}
+.location-header .container .icon {
+    font-size: 20px;
+}
+.location-header .container .change-location-link {
+    border-radius: 3px;
+    border-width: 1px;
+    text-transform: uppercase;
+    transition: all .25s ease-in-out;
+    color: #20ac76;
+    letter-spacing: 2px;
+}
+.btn-sm.btn-alt {
+    border-width: 1px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.btn-primary.btn-alt {
+    background: 0 0;
+    color: #20ac76;
+    border-color: #20ac76;
+    border-radius: 100px;
+}
+a.change-location-link {
+    margin: 0;
+    margin-left: 10px;
+}
+.btn {
+    font-weight: 500;
+    display: inline-block;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.location-header .container .change-location-link:hover {
+    background-color: #20ac76;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.homepage-area-selection-container .container-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg,#fff 0,#fff 10%,rgba(255,255,255,.75) 40%,rgba(255,255,255,.4) 100%);
+}
+/*footer*/
+footer{
+    color: #cecece;
+    background: #363535;
+    padding: 10px 0;
+    font-size: 16px;
+}
 .footer-block {
     margin-top: 20px;
     padding-top: 20px;
@@ -68,12 +217,58 @@ footer a, footer a:active, footer a:focus, footer a:hover {
     list-style: none;
     margin-left: -5px;
 }
-footer-social ul li {
+footer ul {
+    margin: 0;
+    padding: 0;
+}
+.footer-social ul li {
     margin: 0 10px;
-    padding: 2px 0;
 }
 .footer-social ul>li {
     display: inline-block;
     padding-left: 5px;
     padding-right: 5px;
+}
+.footer-links ul li {
+    padding: 2px 0;
+}
+.footer-social ul li a {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+}
+.footer-legal {
+    font-size: 14px;
+    color: #a1a1a1;
+}
+.footer-block {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #464646;
+}
+.footer-legal ul {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+    text-align: center;
+}
+.footer-legal ul li {
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 16px;
+} 
+.footer-legal ul>li {
+    display: inline-block;
+}
+.footer-legal-copyright{
+    font-size: 16px;
 }
