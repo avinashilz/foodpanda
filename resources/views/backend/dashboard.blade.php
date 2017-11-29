@@ -14,7 +14,6 @@
         <a href="{{ route('admin.additemform')}}">
             {{Form::submit('Item',['class' => 'btn'])}}
         </a>
-
     </div>
 
 
