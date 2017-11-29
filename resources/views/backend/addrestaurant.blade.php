@@ -6,7 +6,7 @@
 
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('name','Restaurant Name') }}
+        {{ Form::label('name','Restaurant Name') }}
     </div>
     <div class="col-sm-6"> 
         {{Form::text('name','',['class'=>'textfield'])}}
@@ -14,7 +14,7 @@
 </div>
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('address', 'Address') }}
+        {{ Form::label('address', 'Address') }}
     </div>
     <div class="col-sm-6"> 
         {{ Form::textarea('address','',['class'=>'textfield','rows'=>'3']) }}
@@ -22,7 +22,7 @@
 </div>
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('contact_person', 'Contact Person') }}
+        {{ Form::label('contact_person', 'Contact Person') }}
     </div>
     <div class="col-sm-6"> 
         {{Form::text('contact_person','',['class'=>'textfield'])}}
@@ -30,7 +30,7 @@
 </div>
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('phone', 'Contact Number') }}
+        {{ Form::label('phone', 'Contact Number') }}
     </div>
     <div class="col-sm-6"> 
         {{Form::number('phone','',['class'=>'textfield'])}}
@@ -38,22 +38,27 @@
 </div>
 
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('delivery_radius', 'Delivery Radius') }}
+        {{ Form::label('delivery_radius', 'Delivery Radius') }}
     </div>
     <div class="col-sm-6"> 
         {{Form::number('delivery_radius','',['class'=>'textfield'])}}
     </div>
 </div>
-        {{Form::hidden('latitude','30.698422',['class'=>'textfield'])}}
-        {{Form::hidden('longitude','76.691051',['class'=>'textfield'])}}
-   
+{{Form::hidden('latitude','30.698422',['class'=>'textfield'])}}
+{{Form::hidden('longitude','76.691051',['class'=>'textfield'])}}
 <div class="row"> <div class="col-sm-6">
-       {{ Form::label('restaurant_feature', 'Restaurant Feature') }}
+         {{ Form::label('image', 'Upload Image') }}
+    </div>
+    <div class="col-sm-6"> {{ Form::file('image') }} </div>
+
+</div>
+<div class="row"> <div class="col-sm-6">
+        {{ Form::label('restaurant_feature', 'Restaurant Feature') }}
     </div>
     <div class="col-sm-6"> 
         {{ Form::label('yes', 'Yes',["class"=>'bool']) }}
         {{Form::radio('name', 'value')}}
-         {{ Form::label('no', 'No',["class"=>'bool']) }}
+        {{ Form::label('no', 'No',["class"=>'bool']) }}
         {{Form::radio('name', 'value')}}
     </div>
 </div>
@@ -64,5 +69,5 @@
         </a> 
     </div>
 </div>
-        
+
 @endsection
