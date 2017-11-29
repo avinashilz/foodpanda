@@ -33,5 +33,11 @@
         {{Form::number('price','',['class'=>'textfield'])}}
     </div>
 </div>
+<div class="row"> <div class="col-sm-6"> 
+        <a href="{{ route('admin.additem')}}">
+            {{Form::submit('Add',['class' => 'btn btn-success'])}}
+        </a> 
+    </div>
+</div>
 
 @endsection
