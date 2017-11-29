@@ -22,6 +22,7 @@ class CreateResturantsTable extends Migration
             $table->integer('phone');
             $table->string('contact_person');
             $table->string('delivery_radius');
+            $table->string('image');
             $table->integer('featured_resturant');
             $table->timestamps();
         });
