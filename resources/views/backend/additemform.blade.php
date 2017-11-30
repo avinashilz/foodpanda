@@ -12,7 +12,17 @@
         {{ Form::label('select','Select Restaurant') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::select('restaurant', $restaurant, null, ['placeholder' => 'Choose Restaurant...'])}}
+        
+        
+       @if(isset($restaurantselected['name'])) 
+       
+      
+       {{Form::text('restaurant',$restaurantselected->name,['class'=>'textfield'])}}
+       
+       @else 
+       
+        {{Form::select('restaurant',$restaurant, null, ['placeholder' => 'Choose Restaurant...'])}}
+        @endif
     </div>
 </div>
 <div class="row"> <div class="col-sm-6">
