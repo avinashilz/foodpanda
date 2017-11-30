@@ -20,7 +20,7 @@ class ItemsController extends Controller
             
         $restaurantselected = Restaurant::where('id', $request->all())->first();
         }
-//        dd($restaurantselected->name);
+//        dd($restaurantselected->toArray());
         $categories = Category::pluck('categories', 'id');
 //        dd($categories);
 //        foreach($categories as $category){
@@ -32,9 +32,10 @@ class ItemsController extends Controller
 //        }
         return view('backend.additemform', compact('categories', 'restaurant', 'restaurantselected')); 
     }
-    public function additem(Request $request)
+    public function additem(Request $request, Restaurant $restaurantselected)
     {
 //        dd($request->toArray());
+//        dd($restaurantselected->toArray());
         $this->validate(request(), [
             'name' => 'required',
             'price' => 'required',

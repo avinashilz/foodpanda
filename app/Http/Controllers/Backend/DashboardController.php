@@ -15,12 +15,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::select('id','name','address', 'phone', 'contact_person', 'image')->get();
-//        dd($restaurant->toArray());
-//        foreach ($restaurant as $r) {
-//            dd($r->id);
-//        }
+//        $restaurant = Restaurant::select('id','name','address', 'phone', 'contact_person', 'image')->get();
+////        dd($restaurant->toArray());
+////        foreach ($restaurant as $r) {
+////            dd($r->id);
+////        }
         
-        return view('backend.dashboard', compact('restaurant'));
+        return view('backend.dashboard');
     }
 }

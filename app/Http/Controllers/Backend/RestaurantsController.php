@@ -60,19 +60,8 @@ class RestaurantsController extends Controller {
 
         $restaurant->save();
         
-        dd($restaurant);
+//        dd($restaurant->toArray());
 
-//        $address = $restaurant->address; // Address
-////        dd($address);
-//// Get JSON results from this request
-//        $geo = file_get_contents('http://maps.googleapis.com/maps/api/geocode/json?api=AIzaSyDG2rf8aW-8GYBa74W0OLYN5p2Ztw8GhrY&address=' . urlencode($address) . '&sensor=false');
-//        $geo = json_decode($geo, true); // Convert the JSON to an array
-//        dd($geo);
-//        if ($geo['status'] == 'OK') {
-//            $latitude = $geo['results'][0]['geometry']['location']['lat']; // Latitude
-//            $longitude = $geo['results'][0]['geometry']['location']['lng']; // Longitude
-//            dd($latitude);
-//        }
 
         return redirect()->route('admin.additemform',['id' => $restaurant]);
     }
