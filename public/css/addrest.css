@@ -1,11 +1,12 @@
 .row{margin: 10px 10px;}
 .col-sm-6 .textfield{ width:50%; height: 30px;  }
 label{font-size: 26px; color: #0768b5; padding-left: 50%;}
-.btn-info,.btn-success{height: 45px; width: 90px; font-size: 20px; float:right;}
-.btn-primary{height: 45px; width: 120px; font-size: 20px;}
+.btn-success{height: 45px; width: 90px; font-size: 20px; float:right;}
+.btn-info{height: 45px; width: 120px; font-size: 20px;}
 .bool{
     padding-left: 0px;
 }
+h4{line-height: 0px;}
 /*restaurants div css*/
 html.no-js body.skin-blue.sidebar-mini div.wrapper div.content-wrapper section.content div.row div.col-sm-6.display{
     
