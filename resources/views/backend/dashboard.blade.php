@@ -26,7 +26,7 @@
         <h4> Contact Number : {{$restro->phone}}</h4><br>
         <h4> Contact Person : {{$restro->contact_person}} </h4> <br>
         <img src="/uploads/{{$restro->image}}" height="150px" width="250px" /> <br> 
-        <a href="{{ route('admin.editrestaurantsform',['id'=> $restro->id])  }}">
+        <a href="{{ route('admin.editrestaurantform',['id'=> $restro->id])  }}">
             {{Form::button('Edit',['class' => 'btn'])}} 
         </a>
         <a href="{{ route('admin.restaurant.destroy',['id'=> $restro->id])}}">
