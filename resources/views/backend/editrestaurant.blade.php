@@ -1,12 +1,11 @@
-
-
 @extends('backend.layouts.app')
 @section('content')
 
-
+{{$restaurant}}
 
 {{Form::model($restaurant, ['route' => ['admin.updaterestaurant', $restaurant]])}}
 {{ csrf_field() }}
+
 
 <div class="row"> 
     <a href="{{ route('admin.dashboard')}}">
@@ -75,5 +74,6 @@
         </a> 
     </div>
 </div>
+
 {{Form::close}}
 @endsection
