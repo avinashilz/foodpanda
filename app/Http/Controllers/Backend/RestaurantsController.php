@@ -80,13 +80,56 @@ class RestaurantsController extends Controller {
         //
     }
 
-    public function edit() {
+    public function edit(int $id) {
+        
+//        dd($id);
+        
+        $restaurant =  Restaurant::where('id', $id)->first();
+         dd($restaurant->toArray());
+        
 
-        return view('backend.editrestaurant');
+        return view('backend.editrestaurant', compact('restaurant'));
     }
 
-    public function update() {
-
+    public function update(Request $request) {
+        dd('1');
+        $this->validate(request(), [
+            'name' => 'required',
+            'address' => 'required',
+            'contact_person' => 'required',
+            'phone' => 'required',
+            'delivery_radius' => 'required',
+//          
+        ]);
+        
+        dd('2');
+        $restaurant = new Restaurant;
+        $restaurant->name = request('name');
+        $restaurant->address = request('address');
+        $restaurant->contact_person = request('contact_person');
+        $restaurant->phone = request('phone');
+        $restaurant->longitude = request('longitude');
+//        dd($restaurant->longitude);
+        $restaurant->latitude = request('latitude');
+        $restaurant->delivery_radius = request('delivery_radius');
+        $restaurant->featured_resturant = request('radio');
+        
+        
+        dd('3');
+        if ($request->hasFile('image')) {
+            $media = $request->file('image');
+            $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
+            $destinationPath = public_path('/uploads');
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0777, true);
+            }
+            $request->file('image')->move($destinationPath, $name);
+            $restaurant->image = $name;
+        }
+        
+        dd('4');
+        $restaurant->save();
+        dd('5');
         return back();
     }
 
