@@ -20,15 +20,13 @@
 </div>
 <div class="row">
     @foreach($restaurant as $restro)
-    <div class="col-sm-6"> 
-        {{$restro->name}} <br>
-        {{$restro->address}}<br>
-        {{$restro->phone}}<br>
-        {{$restro->contact_person}}<br>
-        {{$restro->image}}<br>
-        
+    <div class="col-sm-6 display"> 
+        <h3> Restaurant Name : <b> {{$restro->name}}<b> </h3> <br>
+        <h4> Address : {{$restro->address}} </h5> <br>
+        <h4> Contact Number : {{$restro->phone}}</h4><br>
+        <h4> Contact Person : {{$restro->contact_person}} </h4> <br>
         <img src="/uploads/{{$restro->image}}" height="150px" width="250px" /> <br> 
-        <a href="{{ route('admin.edititemform',['id'=> $restro->id])  }}">
+        <a href="{{ route('admin.editrestaurantsform',['id'=> $restro->id])  }}">
             {{Form::button('Edit',['class' => 'btn'])}} 
         </a>
         <a href="{{ route('admin.restaurant.destroy',['id'=> $restro->id])}}">
