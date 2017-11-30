@@ -85,15 +85,15 @@ class RestaurantsController extends Controller {
 //        dd($id);
         
         $restaurant =  Restaurant::where('id', $id)->first();
-         dd($restaurant->toArray());
+//         dd($restaurant->toArray());
         
 
         return view('backend.editrestaurant', compact('restaurant'));
     }
 
-    public function update(Request $request) {
-        dd('1');
-        $this->validate(request(), [
+    public function update(Request $request,int $id) {
+        
+        $this->validate($request, [
             'name' => 'required',
             'address' => 'required',
             'contact_person' => 'required',
@@ -102,21 +102,16 @@ class RestaurantsController extends Controller {
 //          
         ]);
         
-        dd('2');
-        $restaurant = new Restaurant;
-        $restaurant->name = request('name');
-        $restaurant->address = request('address');
-        $restaurant->contact_person = request('contact_person');
-        $restaurant->phone = request('phone');
-        $restaurant->longitude = request('longitude');
-//        dd($restaurant->longitude);
-        $restaurant->latitude = request('latitude');
-        $restaurant->delivery_radius = request('delivery_radius');
-        $restaurant->featured_resturant = request('radio');
+        $update = Restaurant::find($id);
         
-        
-        dd('3');
-        if ($request->hasFile('image')) {
+//        dd($request->toArray());
+        $update->name = $request->name;
+        $update->address = $request->address;
+        $update->contact_person = $request->contact_person;
+        $update->phone = $request->phone;
+        $update->delivery_radius = $request->delivery_radius;
+        $update->featured_resturant = $request->radio;
+         if ($request->hasFile('image')) {
             $media = $request->file('image');
             $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
             $destinationPath = public_path('/uploads');
@@ -124,13 +119,12 @@ class RestaurantsController extends Controller {
                 mkdir($destinationPath, 0777, true);
             }
             $request->file('image')->move($destinationPath, $name);
-            $restaurant->image = $name;
+            $update->image = $name;
         }
+        $update->save();
         
-        dd('4');
-        $restaurant->save();
-        dd('5');
-        return back();
+        
+        return redirect()->route('admin.restaurants.index');
     }
 
     public function destroy(int $id) {
