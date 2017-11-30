@@ -9,18 +9,18 @@ use App\Models\Restaurant;
 class RestaurantsController extends Controller {
 
     public function index() {
-        
-        $restaurant = Restaurant::select('id','name','address', 'phone', 'contact_person', 'image')->get();
+
+        $restaurant = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'image')->get();
 //        dd($restaurant->toArray());
 //        foreach ($restaurant as $r) {
 //            dd($r->id);
 //        }
-        
+
         return view('backend.dashboard', compact('restaurant'));
     }
-    
+
     public function create() {
-        
+
         return view('backend.addrestaurant');
     }
 
@@ -45,15 +45,15 @@ class RestaurantsController extends Controller {
         $restaurant->latitude = request('latitude');
         $restaurant->delivery_radius = request('delivery_radius');
         $restaurant->featured_resturant = request('radio');
-        
-        
+
+
         if ($request->hasFile('image')) {
             $media = $request->file('image');
             $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
             $destinationPath = public_path('/uploads');
             if (!file_exists($destinationPath)) {
                 mkdir($destinationPath, 0777, true);
-            } 
+            }
             $request->file('image')->move($destinationPath, $name);
             $restaurant->image = $name;
         }
@@ -71,29 +71,30 @@ class RestaurantsController extends Controller {
 //            $longitude = $geo['results'][0]['geometry']['location']['lng']; // Longitude
 //            dd($latitude);
 //        }
-        
+
         return redirect()->route('admin.additemform');
     }
-    
+
     public function show() {
-        
+
         //
     }
-    
+
     public function edit() {
-        
+
         return view('backend.editrestaurant');
     }
-    
+
     public function update() {
-        
+
         return back();
     }
-    
-    public function destroy(Restaurant $id) {
+
+    public function destroy(int $id) {
         
-        Restaurant::where('id', $id->id)->delete();
-        
+        Restaurant::where('id', $id)->delete();
+
         return back();
     }
+
 }
