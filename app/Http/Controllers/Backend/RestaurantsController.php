@@ -60,7 +60,7 @@ class RestaurantsController extends Controller {
 
         $restaurant->save();
         
-//        dd($restaurantname);
+        dd($restaurant);
 
 //        $address = $restaurant->address; // Address
 ////        dd($address);
@@ -74,7 +74,7 @@ class RestaurantsController extends Controller {
 //            dd($latitude);
 //        }
 
-        return redirect()->route('admin.additemform',['name' => $restaurant->id]);
+        return redirect()->route('admin.additemform',['id' => $restaurant]);
     }
 
     public function show() {

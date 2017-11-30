@@ -14,7 +14,12 @@ class ItemsController extends Controller
     public function index(Request $request)
     {
 //        dd($request->all());
+
+        
+        if(!empty($request->all())) {
+            
         $restaurantselected = Restaurant::where('id', $request->all())->first();
+        }
 //        dd($restaurantselected->name);
         $categories = Category::pluck('categories', 'id');
 //        dd($categories);
