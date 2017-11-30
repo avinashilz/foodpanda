@@ -14,6 +14,7 @@ let WebpackRTLPlugin = require('webpack-rtl-plugin');
 
 mix.sass('resources/assets/sass/frontend/app.scss', 'public/css/frontend.css')
     .sass('resources/assets/sass/backend/app.scss', 'public/css/backend.css')
+    
     .js([
         'resources/assets/js/frontend/app.js',
         'resources/assets/js/plugin/sweetalert/sweetalert.min.js',

@@ -5,6 +5,9 @@ label{font-size: 26px; color: #0768b5; padding-left: 50%;}
 .bool{
     padding-left: 0px;
 }
+.col-sm-6 display{
+    border:1px solid yellow;
+}
 
 /*header*/
 .homepage-area-selection-container {
@@ -126,23 +129,6 @@ a.change-location-link {
     background-color: #20ac76;
     color: #fff;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .homepage-area-selection-container .container-overlay {
     position: absolute;

@@ -7,11 +7,11 @@
 
 Route::resource('restaurants', 'RestaurantsController');
 
-Route::get('dashboard/additem', 'ItemsController@index')->name('additemform');
+Route::get('additem', 'ItemsController@index')->name('additemform');
 
 Route::post('additem', 'ItemsController@additem')->name('additem');
 
-Route::get('dashboard/edititem', 'ItemsController@edit')->name('edititemform');
+Route::get('edititem', 'ItemsController@edit')->name('edititemform');
 
 Route::post('edititem', 'ItemsController@update')->name('updateitem');
 

@@ -41,7 +41,7 @@ class ItemsController extends Controller
         $item->save();
         
         
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.restaurants.index');
     }
     
     public function edit() {
