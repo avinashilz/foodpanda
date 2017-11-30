@@ -11,9 +11,11 @@ use App\Models\Item;
 
 class ItemsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-//        dd($id);
+//        dd($request->all());
+        $restaurantselected = Restaurant::where('id', $request->all())->first();
+//        dd($restaurantselected->name);
         $categories = Category::pluck('categories', 'id');
 //        dd($categories);
 //        foreach($categories as $category){
@@ -23,7 +25,7 @@ class ItemsController extends Controller
 //        foreach($restaurant as $r) {
 //            dump($r->name);
 //        }
-        return view('backend.additemform', compact('categories', 'restaurant')); 
+        return view('backend.additemform', compact('categories', 'restaurant', 'restaurantselected')); 
     }
     public function additem(Request $request)
     {
