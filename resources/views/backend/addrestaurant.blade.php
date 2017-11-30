@@ -60,7 +60,7 @@
         {{Form::radio('radio', '1')}}
         {{ Form::label('yes', 'Yes',["class"=>'bool']) }}
 
-        {{Form::radio('radio', '0')}}
+        {{Form::radio('radio', '0',true)}}
         {{ Form::label('no', 'No',["class"=>'bool']) }}
     </div>
 </div>
@@ -70,4 +70,5 @@
         </a> 
     </div>
 </div>
+
 @endsection
