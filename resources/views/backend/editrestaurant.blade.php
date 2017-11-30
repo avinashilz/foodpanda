@@ -1,6 +1,12 @@
 @extends('backend.layouts.app')
 @section('content')
- {{$restaurant}}
+
+
+{{ Form::model($restaurant, ['route' => ['admin.restaurants.update',$restaurant->id],'files'=>true])}} 
+
+
+{{ csrf_field() }}
+{{ method_field('PUT') }}
 
 <div class="row"> 
     <a href="{{ route('admin.restaurants.index')}}">
@@ -49,8 +55,8 @@
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('image', 'Upload Image') }}
     </div>
-    <div class="col-sm-6"> 
-         <img src="/uploads/{{$restaurant->image}}" height="150px" width="250px" /> 
+    <div class=        "col-sm-6"> 
+        <img src="/uploads/{{$restaurant->image}}" height="150px" width="250px" /> 
         {{ Form::file('image') }} </div>
 
 </div>
@@ -67,11 +73,10 @@
     </div>
 </div>
 <div class="row"> <div class="col-sm-6"> 
-
-        <a href="{{ route('admin.restaurants.update')}}">
-            {{Form::submit('Update',['class' => 'btn btn-success'])}}
-        </a> 
+        
+        {{Form::submit('Update',['class' => 'btn btn-success'])}}
 
 
     </div>
+    {{Form::close()}}
     @endsection
