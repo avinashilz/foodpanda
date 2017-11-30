@@ -9,6 +9,7 @@ use App\Models\Restaurant;
 class RestaurantsController extends Controller {
 
     public function index() {
+        
         return view('backend.addrestaurant');
     }
 
@@ -62,5 +63,14 @@ class RestaurantsController extends Controller {
         
         return redirect()->route('admin.additemform');
     }
-
+    
+    public function edit() {
+        
+        return view('backend.editrestaurant');
+    }
+    
+    public function update() {
+        
+        return back();
+    }
 }
