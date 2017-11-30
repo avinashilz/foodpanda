@@ -10,10 +10,15 @@ class RestaurantsController extends Controller {
 
     public function index() {
         
+        //
+    }
+    
+    public function create() {
+        
         return view('backend.addrestaurant');
     }
 
-    public function addrestaurant(Request $request) {
+    public function store(Request $request) {
         $this->validate(request(), [
             'name' => 'required',
             'address' => 'required',
@@ -64,12 +69,24 @@ class RestaurantsController extends Controller {
         return redirect()->route('admin.additemform');
     }
     
+    public function show() {
+        
+        //
+    }
+    
     public function edit() {
         
         return view('backend.editrestaurant');
     }
     
     public function update() {
+        
+        return back();
+    }
+    
+    public function destroy(Restaurant $id) {
+        
+        Restaurant::where('id', $id->id)->delete();
         
         return back();
     }

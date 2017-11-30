@@ -10,12 +10,8 @@
 
 <div class="row"> 
     <div class="col-sm-6"> 
-        <a href="{{ route('admin.addrestaurantform')}}">
-            {{Form::submit('Restaurant',['class' => 'btn'])}}
-        </a>
-        <a href="{{ route('admin.additemform')}}">
-            {{Form::submit('Item',['class' => 'btn'])}}
-        </a>
+        <a class="btn btn-primary" href="{{ route('admin.restaurants.create')}}">Restaurant</a>
+        <a class="btn btn-primary" href="{{ route('admin.additemform')}}">Item</a>
     </div>
 </div>
 <div class="row">
@@ -26,12 +22,8 @@
         <h4> Contact Number : {{$restro->phone}}</h4><br>
         <h4> Contact Person : {{$restro->contact_person}} </h4> <br>
         <img src="/uploads/{{$restro->image}}" height="150px" width="250px" /> <br> 
-        <a href="{{ route('admin.editrestaurantform',['id'=> $restro->id])  }}">
-            {{Form::button('Edit',['class' => 'btn'])}} 
-        </a>
-        <a href="{{ route('admin.restaurant.destroy',['id'=> $restro->id])}}">
-            {{Form::button('Delete',['class' => 'btn'])}}
-        </a>
+        <a class="btn btn-info" href="{{ route('admin.restaurants.edit',['id'=> $restro->id]) }}">Edit</a>
+        <a class="btn btn-danger" href="{{ route('admin.restaurants.destroy',['id'=> $restro->id]) }}">Delete</a>
     </div>
     <br>
     @endforeach

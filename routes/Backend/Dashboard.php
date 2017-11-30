@@ -5,20 +5,7 @@
  */
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-
-
-Route::get('dashboard/addrestaurant', 'RestaurantsController@index')->name('addrestaurantform');
-
-Route::post('addrestaurant', 'RestaurantsController@addrestaurant')->name('addrestaurant');
-
-Route::get('dashboard/editrestaurant', 'RestaurantsController@edit')->name('editrestaurantform');
-
-Route::post('editrestaurant', 'RestaurantsController@update')->name('updaterestaurant');
-
-Route::get('deleterestaurant/{id}', 'RestaurantsController@destroy')->name('restaurant.destroy');
-
-
-
+Route::resource('restaurants', 'RestaurantsController');
 
 Route::get('dashboard/additem', 'ItemsController@index')->name('additemform');
 
