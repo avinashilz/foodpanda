@@ -13,6 +13,7 @@ class ItemsController extends Controller
 {
     public function index()
     {
+//        dd($id);
         $categories = Category::pluck('categories', 'id');
 //        dd($categories);
 //        foreach($categories as $category){

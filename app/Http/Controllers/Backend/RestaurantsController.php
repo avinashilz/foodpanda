@@ -59,6 +59,9 @@ class RestaurantsController extends Controller {
         }
 
         $restaurant->save();
+        
+        $restaurantname = $restaurant->name;
+//        dd($restaurantname);
 
 //        $address = $restaurant->address; // Address
 ////        dd($address);
@@ -72,7 +75,7 @@ class RestaurantsController extends Controller {
 //            dd($latitude);
 //        }
 
-        return redirect()->route('admin.additemform');
+        return redirect()->route('admin.additemform', compact('restaurantname'));
     }
 
     public function show() {
