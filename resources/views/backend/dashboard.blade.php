@@ -28,10 +28,10 @@
         {{$restro->image}}<br>
         
         <img src="/uploads/{{$restro->image}}" height="150px" width="250px" /> <br> 
-        <a href="{{ route('admin.dashboard')}}">
+        <a href="{{ route('admin.edititemform',['id'=> $restro->id])  }}">
             {{Form::button('Edit',['class' => 'btn'])}} 
         </a>
-        <a href="{{ route('admin.dashboard')}}">
+        <a href="{{ route('admin.restaurant.destroy',['id'=> $restro->id])}}">
             {{Form::button('Delete',['class' => 'btn'])}}
         </a>
     </div>
