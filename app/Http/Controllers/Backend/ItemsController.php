@@ -43,4 +43,14 @@ class ItemsController extends Controller
         
         return redirect()->route('admin.dashboard');
     }
+    
+    public function edit() {
+        
+        return view('backend.edititem');
+    }
+    
+    public function update() {
+        
+        return back();
+    }
 }
