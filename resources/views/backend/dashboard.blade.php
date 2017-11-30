@@ -26,6 +26,7 @@
         {{$restro->phone}}<br>
         {{$restro->contact_person}}<br>
         {{$restro->image}}<br>
+        
         <img src="/uploads/{{$restro->image}}" height="150px" width="250px" /> <br> 
         <a href="{{ route('admin.dashboard')}}">
             {{Form::button('Edit',['class' => 'btn'])}} 
@@ -34,7 +35,7 @@
             {{Form::button('Delete',['class' => 'btn'])}}
         </a>
     </div>
-
+    <br>
     @endforeach
 
 </div>
