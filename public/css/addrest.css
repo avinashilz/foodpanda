@@ -5,8 +5,15 @@ label{font-size: 26px; color: #0768b5; padding-left: 50%;}
 .bool{
     padding-left: 0px;
 }
-.col-sm-6 display{
-    border:1px solid yellow;
+
+/*restaurants div css*/
+html.no-js body.skin-blue.sidebar-mini div.wrapper div.content-wrapper section.content div.row div.col-sm-6.display{
+    border:1px dotted black;
+}
+html.no-js body.skin-blue.sidebar-mini div.wrapper div.content-wrapper section.content div.row div.col-sm-6.display div{
+    float:left;
+    padding:15px;
+    padding-left: 0px;
 }
 
 /*header*/

@@ -31,7 +31,7 @@
 </div>
 
 <div class="row"> <div class="col-sm-6">
-        {{ Form::label('price','Item Price') }}
+        {{ Form::label('price','Item Price (in ₹:)') }}
     </div>
     <div class="col-sm-6"> 
         {{Form::number('price','',['class'=>'textfield'])}}
