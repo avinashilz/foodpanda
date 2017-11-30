@@ -15,7 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $restaurant = Restaurant::select('name','address', 'phone', 'contact_person', 'image')->get();
+        $restaurant = Restaurant::select('id','name','address', 'phone', 'contact_person', 'image')->get();
 //        dd($restaurant->toArray());
 //        foreach ($restaurant as $r) {
 //            dd($r->id);
