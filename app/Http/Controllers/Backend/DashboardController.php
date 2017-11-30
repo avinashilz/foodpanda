@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 
 /**
  * Class DashboardController.
@@ -14,6 +15,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+        $restaurant = Restaurant::select('name','address', 'phone', 'contact_person', 'image')->get();
+//        dd($restaurant->toArray());
+//        foreach ($restaurant as $r) {
+//            dd($r->id);
+//        }
+        
+        return view('backend.dashboard', compact('restaurant'));
     }
 }
