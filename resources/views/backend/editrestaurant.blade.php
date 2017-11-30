@@ -1,5 +1,6 @@
 @extends('backend.layouts.app')
 @section('content')
+ {{$restaurant}}
 
 <div class="row"> 
     <a href="{{ route('admin.restaurants.index')}}">
@@ -7,37 +8,32 @@
     </a> 
 </div>
 
-<div class="row"> 
-    <a href="{{ route('admin.restaurants.index')}}">
-        {{Form::button('Back',['class' => 'btn btn-warning'])}}
-    </a> 
-</div>
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('name','Restaurant Name') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::text('name','',['class'=>'textfield'])}}
+        {{Form::text('name',$restaurant->name,['class'=>'textfield'])}}
     </div>
 </div>
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('address', 'Address') }}
     </div>
     <div class="col-sm-6"> 
-        {{ Form::textarea('address','',['class'=>'textfield','rows'=>'3']) }}
+        {{ Form::textarea('address',$restaurant->address,['class'=>'textfield','rows'=>'3']) }}
     </div>
 </div>
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('contact_person', 'Contact Person') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::text('contact_person','',['class'=>'textfield'])}}
+        {{Form::text('contact_person',$restaurant->contact_person,['class'=>'textfield'])}}
     </div>
 </div>
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('phone', 'Contact Number') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('phone','',['class'=>'textfield'])}}
+        {{Form::number('phone',$restaurant->phone,['class'=>'textfield'])}}
     </div>
 </div>
 
@@ -45,7 +41,7 @@
         {{ Form::label('delivery_radius', 'Delivery Radius') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('delivery_radius','',['class'=>'textfield'])}}
+        {{Form::number('delivery_radius',$restaurant->delivery_radius,['class'=>'textfield'])}}
     </div>
 </div>
 {{Form::hidden('latitude','30.698422',['class'=>'textfield'])}}
@@ -53,7 +49,9 @@
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('image', 'Upload Image') }}
     </div>
-    <div class="col-sm-6"> {{ Form::file('image') }} </div>
+    <div class="col-sm-6"> 
+         <img src="/uploads/{{$restaurant->image}}" height="150px" width="250px" /> 
+        {{ Form::file('image') }} </div>
 
 </div>
 <div class="row"> <div class="col-sm-6">
@@ -69,9 +67,11 @@
     </div>
 </div>
 <div class="row"> <div class="col-sm-6"> 
-      
-            {{Form::submit('update',['class' => 'btn btn-success'])}}
-       
-   
-</div>
-@endsection
+
+        <a href="{{ route('admin.restaurants.update')}}">
+            {{Form::submit('Update',['class' => 'btn btn-success'])}}
+        </a> 
+
+
+    </div>
+    @endsection
