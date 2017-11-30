@@ -70,7 +70,7 @@
 </div>
 <div class="row"> <div class="col-sm-6"> 
         <a href="{{ route('admin.dashboard')}}">
-            {{Form::submit('Add',['class' => 'btn btn-success'])}}
+            {{Form::submit('Update',['class' => 'btn btn-success'])}}
         </a> 
     </div>
 </div>
