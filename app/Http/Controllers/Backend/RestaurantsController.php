@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use App\Models\Category;
+use App\Models\Item;
 
 class RestaurantsController extends Controller {
 
@@ -16,7 +18,7 @@ class RestaurantsController extends Controller {
 //            dd($r->id);
 //        }
 
-        return view('backend.dashboard', compact('restaurant'));
+        return view('backend.restaurants', compact('restaurant'));
     }
 
     public function create() {
@@ -24,8 +26,8 @@ class RestaurantsController extends Controller {
         return view('backend.addrestaurant');
     }
 
-    public function store(Request $request) {
-        $this->validate(request(), [
+    public function store($request) {
+        $this->validate($request, [
             'name' => 'required',
             'address' => 'required',
             'contact_person' => 'required',
@@ -36,15 +38,15 @@ class RestaurantsController extends Controller {
 
 //        dd($request->toArray());
         $restaurant = new Restaurant;
-        $restaurant->name = request('name');
-        $restaurant->address = request('address');
-        $restaurant->contact_person = request('contact_person');
-        $restaurant->phone = request('phone');
-        $restaurant->longitude = request('longitude');
+        $restaurant->name = $request->name;
+        $restaurant->address = $request->address;
+        $restaurant->contact_person = $request->contact_person;
+        $restaurant->phone = $request->phone;
+        $restaurant->longitude = $request->longitude;
 //        dd($restaurant->longitude);
-        $restaurant->latitude = request('latitude');
-        $restaurant->delivery_radius = request('delivery_radius');
-        $restaurant->featured_resturant = request('radio');
+        $restaurant->latitude = $request->latitude;
+        $restaurant->delivery_radius = $request->delivery_radius;
+        $restaurant->featured_resturant = $request->radio;
 
 
         if ($request->hasFile('image')) {
@@ -66,9 +68,18 @@ class RestaurantsController extends Controller {
         return redirect()->route('admin.additemform',['id' => $restaurant]);
     }
 
-    public function show() {
+    public function show(int $id) {
 
-        //
+//        dd($id);
+        
+//        $item = Item::where('resturants_id', $id)->get();
+        $item = Item::where('resturants_id', $id)->select('id','name','price','category_id')->get();
+//        dd($item->toArray());
+        
+        
+        
+
+         return view('backend.showitems');
     }
 
     public function edit(int $id) {
@@ -82,7 +93,7 @@ class RestaurantsController extends Controller {
         return view('backend.editrestaurant', compact('restaurant'));
     }
 
-    public function update(Request $request,int $id) {
+    public function update($request,int $id) {
         
         $this->validate($request, [
             'name' => 'required',
