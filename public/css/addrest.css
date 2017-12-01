@@ -7,6 +7,10 @@ label{font-size: 26px; color: #0768b5; padding-left: 50%;}
 .bool{
     padding-left: 0px;
 }
+.btn:hover{
+    background-color: #20ac76;
+    color: #fff;
+}
 .no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
     -webkit-appearance: none !important;
     margin: 0 !important;
