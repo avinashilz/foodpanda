@@ -39,7 +39,7 @@
         {{ Form::label('phone', 'Contact Number') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('phone',$restaurant->phone,['class'=>'textfield'])}}
+        {{Form::number('phone',$restaurant->phone,['class'=>'no-spin'])}}
     </div>
 </div>
 
@@ -47,7 +47,7 @@
         {{ Form::label('delivery_radius', 'Delivery Radius') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('delivery_radius',$restaurant->delivery_radius,['class'=>'textfield'])}}
+        {{Form::number('delivery_radius',$restaurant->delivery_radius,['class'=>'no-spin'])}}
     </div>
 </div>
 {{Form::hidden('latitude','30.698422',['class'=>'textfield'])}}
@@ -68,13 +68,13 @@
         {{Form::radio('radio', '1')}}
         {{ Form::label('yes', 'Yes',["class"=>'bool']) }}
 
-        {{Form::radio('radio', '0')}}
+        {{Form::radio('radio', '0',true)}}
         {{ Form::label('no', 'No',["class"=>'bool']) }}
     </div>
 </div>
 <div class="row"> <div class="col-sm-6"> 
         
-        {{Form::submit('Update',['class' => 'btn btn-success'])}}
+        {{Form::submit('Update',['class' => 'btn btn-info'])}}
 
 
     </div>
