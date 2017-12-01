@@ -19,7 +19,7 @@
             <h3> Item Name :{{$item->name}}  </h3> <br>
             <h4> Price :{{$item->price}} </h4><br>
             <div class=""col-sm-4 align> <a href="{{ route('admin.edititemform',['id'=> $item->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>            {{ Form::open([
-                            'route' => ['admin.restaurants.destroy', $item->id],
+                            'route' => ['admin.item.destroy', $item->id],
                             'method' => 'delete'
                         ]) }}
                
