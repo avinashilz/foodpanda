@@ -11,14 +11,17 @@ label{font-size: 26px; color: #0768b5; padding-left: 50%;}
 .bool{
     padding-left: 0px;
 }
+.btn-danger .edit{border:0;}
 .col-sm-4 .btn {float: right;}
 .fa-hand-o-left{font-size: 40px;
                 margin-left: 10px;
                 color: #3fa75a;}
-.fa-pencil-square-o{font-size: 40px;
+.fa-pencil-square-o{font-size: 28px;
                     float: left;
-                    padding-right: 15px;
                     color: slategray;}
+input.btn.cross{padding: 2px 9px 2px 9px;
+           color: #fff;
+           background-color: red;}
 .no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
     -webkit-appearance: none !important;
     margin: 0 !important;
