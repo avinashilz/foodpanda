@@ -16,8 +16,8 @@
         {{ Form::label('select','Restaurant Name') }}
     </div>
     <div class="col-sm-6">
-        {{Form::hidden('id',$restaurantselected->id)}}
-        {{$restaurantselected->name}}
+        {{Form::hidden('restaurant',$restaurantselected->id)}}
+        {{Form::label('name',$restaurantselected->name,['class'=>'fixedlabel'])}}
     </div>
 
     @else 
