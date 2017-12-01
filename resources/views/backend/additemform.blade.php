@@ -12,15 +12,15 @@
         {{ Form::label('select','Select Restaurant') }}
     </div>
     <div class="col-sm-6"> 
-        
-        
-       @if(isset($restaurantselected['name'])) 
-       
-      
-       {{Form::text('restaurant',$restaurantselected->name,['class'=>'textfield'])}}
-       
-       @else 
-       
+
+
+        @if(isset($restaurantselected['name'])) 
+
+        {{Form::hidden('id',$restaurantselected->id)}}
+        {{$restaurantselected->name}}
+
+        @else 
+
         {{Form::select('restaurant',$restaurant, null, ['placeholder' => 'Choose Restaurant...'])}}
         @endif
     </div>
