@@ -65,7 +65,6 @@ class RestaurantsController extends Controller {
         })->with(['items' => function($query) use($id) {
             $query->where('resturants_id', $id);
         }])->get();
-        dd($categories->toArray());
         
         return view('backend.showitems', compact('categories'));
     }
