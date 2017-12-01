@@ -74,7 +74,7 @@ class RestaurantsController extends Controller {
         
 //        $item = Item::where('resturants_id', $id)->get();
         $item = Item::where('resturants_id', $id)->select('id','name','price','category_id')->get();
-        dd($item->toArray());
+//        dd($item->toArray());
         
         
         
