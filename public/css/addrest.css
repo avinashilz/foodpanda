@@ -3,17 +3,18 @@
 label{font-size: 26px; color: #0768b5; padding-left: 50%;}
 .fixedlabel{padding-left:0px;}
 .btn-success{height: 45px; width: 90px; font-size: 20px; float:right;}
-.btn-info{height: 45px; width: 200px; font-size: 20px; background:0 0; 
+.btn-info{height: 45px;  font-size: 20px; background:0 0; 
           color: #05acd6; margin-right: 5px; text-transform: uppercase;
           letter-spacing: 2px;}
+.btn-warning{color: #f39c12; background: 0 0; &:hover{ color: #fff; background-color: #f39c12; } } 
+.btn-danger{color:#d73925; background: 0 0;  &:hover{ color: #fff; background-color: #d73925; }}
 .bool{
     padding-left: 0px;
 }
 .col-sm-4 .btn {float: right;}
-.btn:hover{
-    background-color: #20ac76;
-    color: #fff;
-}
+.fa-hand-o-left{font-size: 40px;
+                margin-left: 10px;
+                color: #3fa75a;}
 .no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
     -webkit-appearance: none !important;
     margin: 0 !important;
