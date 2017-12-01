@@ -9,7 +9,7 @@ label{font-size: 26px; color: #0768b5; padding-left: 50%;}
 .bool{
     padding-left: 0px;
 }
-
+.col-sm-4 .btn {float: right;}
 .btn:hover{
     background-color: #20ac76;
     color: #fff;
