@@ -50,7 +50,7 @@
         {{ Form::label('price','Item Price (in ₹:)') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('price','',['class'=>'textfield'])}}
+        {{Form::number('price','',['class'=>'no-spin'])}}
     </div>
 </div>
 <div class="row"> <div class="col-sm-6"> 
