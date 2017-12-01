@@ -22,7 +22,7 @@ class RestaurantsController extends Controller {
         return view('backend.addrestaurant');
     }
 
-    public function store($request) {
+    public function store(Request $request) {
         $this->validate($request, [
             'name' => 'required',
             'address' => 'required',
@@ -77,7 +77,7 @@ class RestaurantsController extends Controller {
         return view('backend.editrestaurant', compact('restaurant'));
     }
 
-    public function update($request,int $id) {
+    public function update(Request $request,int $id) {
         
         $this->validate($request, [
             'name' => 'required',
