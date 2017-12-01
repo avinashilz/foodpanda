@@ -39,9 +39,12 @@ class ItemsController extends Controller {
         return redirect()->route('admin.restaurants.index');
     }
 
-    public function edit() {
+    public function edit(int $id) {
+        
+        $item =  Item::where('id', $id)->first();
+//        dd($item->toArray());
 
-        return view('backend.edititem');
+        return view('backend.edititem', compact('item'));
     }
 
     public function update() {
