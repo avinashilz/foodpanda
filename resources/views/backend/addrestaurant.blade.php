@@ -33,7 +33,7 @@
         {{ Form::label('phone', 'Contact Number') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('phone','',['class'=>'textfield'])}}
+        {{Form::number('phone','',['class'=>'no-spin'])}}
     </div>
 </div>
 
@@ -41,7 +41,7 @@
         {{ Form::label('delivery_radius', 'Delivery Radius') }}
     </div>
     <div class="col-sm-6"> 
-        {{Form::number('delivery_radius','',['class'=>'textfield'])}}
+        {{Form::number('delivery_radius','',['class'=>'no-spin'])}}
     </div>
 </div>
 {{Form::hidden('latitude','30.698422',['class'=>'textfield'])}}
