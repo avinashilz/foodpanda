@@ -13,10 +13,6 @@ class RestaurantsController extends Controller {
     public function index() {
 
         $restaurant = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'image')->get();
-//        dd($restaurant->toArray());
-//        foreach ($restaurant as $r) {
-//            dd($r->id);
-//        }
 
         return view('backend.restaurants', compact('restaurant'));
     }
@@ -32,18 +28,15 @@ class RestaurantsController extends Controller {
             'address' => 'required',
             'contact_person' => 'required',
             'phone' => 'required',
-            'delivery_radius' => 'required',
-//          
+            'delivery_radius' => 'required'          
         ]);
 
-//        dd($request->toArray());
         $restaurant = new Restaurant;
         $restaurant->name = $request->name;
         $restaurant->address = $request->address;
         $restaurant->contact_person = $request->contact_person;
         $restaurant->phone = $request->phone;
         $restaurant->longitude = $request->longitude;
-//        dd($restaurant->longitude);
         $restaurant->latitude = $request->latitude;
         $restaurant->delivery_radius = $request->delivery_radius;
         $restaurant->featured_resturant = $request->radio;
@@ -62,34 +55,25 @@ class RestaurantsController extends Controller {
 
         $restaurant->save();
         
-//        dd($restaurant->toArray());
-
-
         return redirect()->route('admin.additemform',['id' => $restaurant]);
     }
 
     public function show(int $id) {
 
-//        dd($id);
+        $categories = Category::whereHas('items', function ($query) use($id) {
+            $query->where('resturants_id', $id);
+        })->with(['items' => function($query) use($id) {
+            $query->where('resturants_id', $id);
+        }])->get();
+        dd($categories->toArray());
         
-//        $item = Item::where('resturants_id', $id)->get();
-        $item = Item::where('resturants_id', $id)->select('id','name','price','category_id')->get();
-//        dd($item->toArray());
-        
-        
-        
-
-         return view('backend.showitems', compact('item'));
+        return view('backend.showitems', compact('categories'));
     }
 
     public function edit(int $id) {
-        
-//        dd($id);
-        
+         
         $restaurant =  Restaurant::where('id', $id)->first();
-//         dd($restaurant->toArray());
-        
-
+       
         return view('backend.editrestaurant', compact('restaurant'));
     }
 
@@ -100,13 +84,11 @@ class RestaurantsController extends Controller {
             'address' => 'required',
             'contact_person' => 'required',
             'phone' => 'required',
-            'delivery_radius' => 'required',
-//          
+            'delivery_radius' => 'required',      
         ]);
         
         $update = Restaurant::find($id);
-        
-//        dd($request->toArray());
+      
         $update->name = $request->name;
         $update->address = $request->address;
         $update->contact_person = $request->contact_person;

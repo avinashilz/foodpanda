@@ -9,14 +9,14 @@ class Category extends Model
 {
     public function restaurants()
     {
-        return $this->belongsTo('App\Restaurant');
+        return $this->belongsTo('App\Models\Restaurant');
 //        Same
 //        return $this->hasMany(Item::class);
     } 
     
     public function items()
     {
-        return $this->hasMany('App\Item');
+        return $this->hasMany('App\Models\Item');
 //        Same
 //        return $this->hasMany(Item::class);
     } 
