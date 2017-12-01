@@ -36,16 +36,16 @@ class ItemsController extends Controller
     {
 //        dd($request->toArray());
 //        dd($restaurantselected->toArray());
-        $this->validate(request(), [
+        $this->validate($request, [
             'name' => 'required',
             'price' => 'required',
         ]);
         
         $item = new Item;
-        $item->name = request('name');
-        $item->price = request('price');
-        $item->resturants_id = request('restaurant');
-        $item->category_id = request('categories');
+        $item->name = $request->name;
+        $item->price = $request->price;
+        $item->resturants_id = $request->restaurant;
+        $item->category_id = $request->categories;
         
         $item->save();
         
