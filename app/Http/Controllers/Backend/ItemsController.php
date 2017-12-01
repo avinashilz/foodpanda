@@ -47,9 +47,28 @@ class ItemsController extends Controller {
         return view('backend.edititem', compact('item'));
     }
 
-    public function update() {
+    public function update(Request $request, int $id) {
+//        dd($request->all());
+        
+         $this->validate($request, [
+            'name' => 'required',
+            'price' => 'required',    
+        ]);
+         
+         $update = Item::find($id);
+         
+         $update->name = $request->name;
+         $update->price = $request->price;
+         $update->save();
+//         dd('12');
+        return redirect()->route('admin.restaurants.index');
+    }
+    
+    public function destroy(int $id) {
+        
+        Item::where('id', $id)->delete();
 
-        return back();
+        return redirect()->route('admin.restaurants.index');
     }
 
 }

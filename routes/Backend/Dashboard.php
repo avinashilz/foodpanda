@@ -13,6 +13,6 @@ Route::post('additem', 'ItemsController@additem')->name('additem');
 
 Route::get('edititem/{id}', 'ItemsController@edit')->name('edititemform');
 
-Route::post('edititem', 'ItemsController@update')->name('updateitem');
+Route::put('edititem/{id}', 'ItemsController@update')->name('updateitem');
 
-Route::get('deleteitem/{id}', 'ItemsController@destroy')->name('item.destroy');
+Route::delete('deleteitem/{id}', 'ItemsController@destroy')->name('item.destroy');

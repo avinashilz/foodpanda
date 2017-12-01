@@ -66,7 +66,7 @@ class RestaurantsController extends Controller {
             $query->where('resturants_id', $id);
         }])->get();
         
-        return view('backend.showitems', compact('categories'));
+        return view('backend.showitems', compact('categories', 'id'));
     }
 
     public function edit(int $id) {
