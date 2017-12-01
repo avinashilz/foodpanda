@@ -11,7 +11,7 @@ Route::get('additem', 'ItemsController@index')->name('additemform');
 
 Route::post('additem', 'ItemsController@additem')->name('additem');
 
-Route::get('edititem', 'ItemsController@edit')->name('edititemform');
+Route::get('edititem/{id}', 'ItemsController@edit')->name('edititemform');
 
 Route::post('edititem', 'ItemsController@update')->name('updateitem');
 
