@@ -3,10 +3,13 @@
 label{font-size: 26px; color: #0768b5; padding-left: 50%;}
 .fixedlabel{padding-left:0px;}
 .btn-success{height: 45px; width: 90px; font-size: 20px; float:right;}
-.btn-info{height: 45px; width: 150px; font-size: 20px;}
+.btn-info{height: 45px; width: 200px; font-size: 20px; background:0 0; 
+          color: #05acd6; margin-right: 5px; text-transform: uppercase;
+          letter-spacing: 2px;}
 .bool{
     padding-left: 0px;
 }
+
 .btn:hover{
     background-color: #20ac76;
     color: #fff;
