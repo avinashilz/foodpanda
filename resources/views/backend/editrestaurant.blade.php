@@ -10,7 +10,7 @@
 
 <div class="row"> 
     <a href="{{ route('admin.restaurants.index')}}">
-        {{Form::button('Back',['class' => 'btn btn-warning'])}}
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
     </a> 
 </div>
 
@@ -72,11 +72,13 @@
         {{ Form::label('no', 'No',["class"=>'bool']) }}
     </div>
 </div>
-<div class="row"> <div class="col-sm-6"> 
+<div class="row"> <div class="col-sm-6"> </div>
+    <div class="col-sm-6"> 
         
-        {{Form::submit('Update',['class' => 'btn btn-info'])}}
+        {{Form::submit('Update',['class' => 'btn btn-info right'])}}
 
 
     </div>
+   
     {{Form::close()}}
     @endsection

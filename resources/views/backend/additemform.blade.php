@@ -3,7 +3,7 @@
 
 <div class="row"> 
     <a href="{{ route('admin.restaurants.index')}}">
-        {{Form::button('Back',['class' => 'btn btn-warning'])}}
+       <i class="fa fa-hand-o-left" aria-hidden="true"></i>
     </a> 
 </div>
 {{ Form::open(['route' => 'admin.additem', 'files' => true]) }}

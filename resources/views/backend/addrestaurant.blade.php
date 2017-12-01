@@ -1,13 +1,13 @@
 @extends('backend.layouts.app')
 @section('content')
-
-{{ Form::open(['route' => 'admin.restaurants.store', 'files' => true]) }} 
-{{ csrf_field() }}
 <div class="row"> 
     <a href="{{ route('admin.restaurants.index')}}">
-        {{Form::button('Back',['class' => 'btn btn-warning'])}}
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
     </a> 
 </div>
+{{ Form::open(['route' => 'admin.restaurants.store', 'files' => true]) }} 
+{{ csrf_field() }}
+
 <div class="row"> <div class="col-sm-6">
         {{ Form::label('name','Restaurant Name') }}
     </div>
