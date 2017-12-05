@@ -11,8 +11,8 @@ Route::get('additem', 'ItemsController@index')->name('additemform');
 
 Route::post('additem', 'ItemsController@additem')->name('additem');
 
-Route::get('edititem/{id}', 'ItemsController@edit')->name('edititemform');
+Route::get('restaurants/{restroid}/edititem/{itemid}/edit', 'ItemsController@edit')->name('edititemform');
 
-Route::put('edititem/{id}', 'ItemsController@update')->name('updateitem');
+Route::put('restaurants/{restroid}/edititem/{itemid}', 'ItemsController@update')->name('updateitem');
 
-Route::delete('deleteitem/{id}', 'ItemsController@destroy')->name('item.destroy');
+Route::delete('restaurants/{restroid}/deleteitem/{itemid}', 'ItemsController@destroy')->name('item.destroy');

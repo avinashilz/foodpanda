@@ -58,15 +58,15 @@ class RestaurantsController extends Controller {
         return redirect()->route('admin.additemform',['id' => $restaurant]);
     }
 
-    public function show(int $id) {
+    public function show(int $restroid) {
 
-        $categories = Category::whereHas('items', function ($query) use($id) {
-            $query->where('resturants_id', $id);
-        })->with(['items' => function($query) use($id) {
-            $query->where('resturants_id', $id);
+        $categories = Category::whereHas('items', function ($query) use($restroid) {
+            $query->where('resturants_id', $restroid);
+        })->with(['items' => function($query) use($restroid) {
+            $query->where('resturants_id', $restroid);
         }])->get();
         
-        return view('backend.showitems', compact('categories', 'id'));
+        return view('backend.showitems', compact('categories', 'restroid'));
     }
 
     public function edit(int $id) {

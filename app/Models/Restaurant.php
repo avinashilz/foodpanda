@@ -12,16 +12,20 @@ class Restaurant extends Model
 
     public function categories()
     {
-        return $this->hasMany('App\Category');
+        return $this->hasMany('App\Models\Category');
 //        Same
 //        return $this->hasMany(Category::class);
     }
     
     public function items()
     {
-        return $this->hasMany('App\Item');
+        return $this->hasMany('App\Models\Item');
 //        Same
 //        return $this->hasMany(Item::class);
+    }
+    
+    public function orders() {
+        return $this->hasMany('App\Models\Order');
     }
     
 }
