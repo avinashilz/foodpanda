@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Access\User\Traits\UserSendPasswordReset;
 use App\Models\Access\User\Traits\Attribute\UserAttribute;
 use App\Models\Access\User\Traits\Relationship\UserRelationship;
+use Carbon\carbon;
 
 /**
  * Class User.
@@ -54,7 +55,7 @@ class User extends Authenticatable
      * The dynamic attributes from mutators that should be returned with the user object.
      * @var array
      */
-    protected $appends = ['full_name', 'name'];
+    protected $appends = ['full_name', 'name', 'age'];
 
     /**
      * @param array $attributes
@@ -66,5 +67,10 @@ class User extends Authenticatable
     }
     public function Orders() {
         return $this->hasMany('App\Models\Order');
+    }
+    public function getAgeAttribute() {
+        
+        return Carbon::parse($this->dob)->diff(Carbon::now())->format('%y');
+        
     }
 }

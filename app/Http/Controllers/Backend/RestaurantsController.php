@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\Fileentry;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
 
 class RestaurantsController extends Controller {
 
     public function index() {
 
-        $restaurant = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'image')->get();
-
+        $restaurant = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'fileentry_id')->with('fileentry')->get();
+//        dd($restaurant->toArray());
         return view('backend.restaurants', compact('restaurant'));
     }
 
@@ -28,7 +32,7 @@ class RestaurantsController extends Controller {
             'address' => 'required',
             'contact_person' => 'required',
             'phone' => 'required',
-            'delivery_radius' => 'required'          
+            'delivery_radius' => 'required'
         ]);
 
         $restaurant = new Restaurant;
@@ -43,58 +47,71 @@ class RestaurantsController extends Controller {
 
 
         if ($request->hasFile('image')) {
-            $media = $request->file('image');
-            $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
-            $destinationPath = public_path('/uploads');
-            if (!file_exists($destinationPath)) {
-                mkdir($destinationPath, 0777, true);
-            }
-            $request->file('image')->move($destinationPath, $name);
-            $restaurant->image = $name;
+//            $media = $request->file('image');
+//            $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
+//            $destinationPath = public_path('/uploads');
+//            if (!file_exists($destinationPath)) {
+//                mkdir($destinationPath, 0777, true);
+//            }
+//            $request->file('image')->move($destinationPath, $name);
+//            $restaurant->image = $name;
+
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            Storage::disk('local')->put($file->getFileName() . '.' . $extension, File::get($file));
+            $entry = new Fileentry();
+            $entry->mime = $file->getClientMimeType();
+            $entry->original_filename = $file->getClientOriginalName();
+            $entry->filename = $file->getFilename() . '.' . $extension;
+
+            $entry->save();
+
+            $entryid = $entry->id;
+            $restaurant->fileentry_id = $entryid;
         }
 
         $restaurant->save();
-        
-        return redirect()->route('admin.additemform',['id' => $restaurant]);
+
+        return redirect()->route('admin.additemform', ['id' => $restaurant]);
     }
 
     public function show(int $restroid) {
 
         $categories = Category::whereHas('items', function ($query) use($restroid) {
-            $query->where('resturants_id', $restroid);
-        })->with(['items' => function($query) use($restroid) {
-            $query->where('resturants_id', $restroid);
-        }])->get();
-        
+                    $query->where('resturants_id', $restroid);
+                })->with(['items' => function($query) use($restroid) {
+                        $query->where('resturants_id', $restroid);
+                    }])->get();
+
         return view('backend.showitems', compact('categories', 'restroid'));
     }
 
     public function edit(int $id) {
-         
-        $restaurant =  Restaurant::where('id', $id)->first();
-       
+
+        $restaurant = Restaurant::where('id', $id)->first();
+
         return view('backend.editrestaurant', compact('restaurant'));
     }
 
-    public function update(Request $request,int $id) {
-        
+    public function update(Request $request, int $id) {
+
         $this->validate($request, [
             'name' => 'required',
             'address' => 'required',
             'contact_person' => 'required',
             'phone' => 'required',
-            'delivery_radius' => 'required',      
+            'delivery_radius' => 'required',
         ]);
-        
+
         $update = Restaurant::find($id);
-      
+
         $update->name = $request->name;
         $update->address = $request->address;
         $update->contact_person = $request->contact_person;
         $update->phone = $request->phone;
         $update->delivery_radius = $request->delivery_radius;
         $update->featured_resturant = $request->radio;
-         if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $media = $request->file('image');
             $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
             $destinationPath = public_path('/uploads');
@@ -105,13 +122,13 @@ class RestaurantsController extends Controller {
             $update->image = $name;
         }
         $update->save();
-        
-        
+
+
         return redirect()->route('admin.restaurants.index');
     }
 
     public function destroy(int $id) {
-        
+
         Restaurant::where('id', $id)->delete();
 
         return back();

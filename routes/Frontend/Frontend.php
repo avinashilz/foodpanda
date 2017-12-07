@@ -37,6 +37,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/mostFrequentUserIn2Months', 'DashboardController@most_frequent_user_in_2_months')->name('most_frequent_user_in_2_months');
 
         Route::get('/mostPopularChinesRestaurants', 'DashboardController@most_popular_Chines_restaurants')->name('most_popular_Chines_restaurants');
+       
+        Route::get('/user', 'DashboardController@user')->name('user');
         /*
          * User Account Specific
          */
