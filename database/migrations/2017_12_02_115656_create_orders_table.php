@@ -16,8 +16,8 @@ class CreateOrdersTable extends Migration {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('restaurants_id')->unsigned();
-            $table->foreign('restaurants_id')->references('id')->on('restaurants');
+            $table->integer('restaurant_id')->unsigned();
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
             $table->string('amount');
             $table->timestamps();
         });

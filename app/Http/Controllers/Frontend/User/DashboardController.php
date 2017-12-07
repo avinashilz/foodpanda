@@ -7,6 +7,9 @@ use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Item;
+use App\Models\Access\User\User;
+use Carbon\carbon;
 
 /**
  * Class DashboardController.
@@ -90,38 +93,62 @@ class DashboardController extends Controller {
     public function most_popular_restaurant_of_logged_user() {
         $userid = auth()->user()->id;
 
-        $mp = Order::where('user_id', $userid)->select('id', 'restaurant_id', \DB::raw('count(*) as total'))->groupBy('restaurant_id')->orderBy('total', 'desc')->with('restaurant')->first();
-        dump($mp->toArray());
+        $mp = Order::where('user_id', $userid)->select('id', 'restaurant_id', \DB::raw('count(*) as total'))->groupBy('restaurant_id')->orderBy('total', 'desc')->with('restaurant')->get();
+        dd($mp->toArray());
         dump($mp->restaurant->name);
     }
-    
+
     public function most_popular_Chines_item_in_2_months() {
         $categoryId = 11;
-//        $userid = auth()->user()->id;
+        $userid = auth()->user()->id;
 //        dd($userid);
-        $chines = Category::where('id', $categoryId)->whereHas('items', function($query) use($categoryId) {
-            $query->whereHas('orderitems');
-        })->with(['items' => function($query){
-            $query->whereHas('orderitems')->with(['orderitems' => function($query) {
-            
-                $query->select('item_id', 'quantity', \DB::raw('count(*) as total'));
-            }]);
-        }])->get();
-        dd($chines->toArray());
-    }
-    
-    
-    
-    public function most_frequent_user_in_2_months() {
-        
-        $mpu = Order::whereBetween('created_at', ['2017-10-05', '2017-12-05'])->select('id', 'user_id', \DB::raw('count(*) as total'))->groupBy('user_id')->orderBy('total', 'desc')->with('user')->first();
-        dd($mpu->toArray());
-        
-    }
-    
-    public function most_popular_Chines_restaurants() {
-        $chinesrestaurants = Category::where('id', '11' )->wherehas('items')->with('items')->get();
-        dd($chinesrestaurants->toArray());
+//        $chines = Category::where('id', $categoryId)->whereHas('items', function($query) use($categoryId) {
+//            $query->whereHas('orderitems');
+//        })->with(['items' => function($query){
+//            $query->whereHas('orderitems')->with(['orderitems' => function($query) {
+//                $query->select('item_id', 'quantity', \DB::raw('count(*) as total'))->groupBy('item_id');
+//            }]);
+//        }])->get();
+//        dd($chines->toArray());
+//        $item = Item::where('category_id', $categoryId)
+//                        ->whereHas('orderItems')
+//                        ->with(['orderitems' => function($query) {
+//                                $query->select('item_id', 'quantity', \DB::raw('count(*) as total'))
+//                                ->groupBy('item_id');
+//                            }])->get();
+//        dump($item->toArray());
+
+        $item = OrderItem::whereHas('item', function ($query) use($categoryId) {
+                    $query->where('category_id', $categoryId);
+                })->with('item')->select('id', 'item_id', \DB::raw('count(*) as total'))->groupBy('item_id')->orderBy('total', 'desc')->first();
+        dd($item->item->name);
     }
 
+    public function most_frequent_user_in_2_months() {
+        $currentdate = carbon::now();
+        $backdate = carbon::now()->subDays(60);
+        $mpu = Order::whereBetween('created_at', [$backdate, $currentdate])->select('id', 'user_id', \DB::raw('count(*) as total'))->groupBy('user_id')->orderBy('total', 'desc')->with('user')->first();
+        dd($mpu->toArray());
+    }
+
+    public function most_popular_Chines_restaurants() {
+        
+    }
+
+    public function user() {
+        $users = User::all()->keyBy('age');
+        dump($users->toArray());
+        $a =1;
+        foreach($users as $key=> $user) {
+            if($a%3 == 0) {
+                $users->forget($key);
+            }
+            $a++;
+            
+        }
+            dd($users->toArray());
+       
+    }
+
+    
 }
