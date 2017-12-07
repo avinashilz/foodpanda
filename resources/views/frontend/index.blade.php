@@ -179,9 +179,9 @@
         </div> col-md-10 
 
     </div>row-->
-<div class="row">
+<div class="row" style=" min-height:600px">
 
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2"  style="z-index:2">
 
         <div class="panel panel-default">
             <div class="panel-heading">{{ trans('labels.frontend.auth.login_box_title') }}</div>
@@ -232,4 +232,5 @@
     </div><!-- col-md-8 -->
 
 </div><!-- row -->
+<div class="container-overlay"></div>
 @endsection
