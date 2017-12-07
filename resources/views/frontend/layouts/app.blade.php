@@ -21,7 +21,9 @@
         @langRTL
             {{ Html::style(getRtlCss(mix('css/frontend.css'))) }}
         @else
-            {{ Html::style(mix('css/frontend.css')) }}
+            {{ Html::style('css/frontend.css') }}
+            {{Html::style('css/frontpage.css')}}
+            {{html::style('css/fontawesome.min.css')}}
         @endif
 
         @yield('after-styles')
