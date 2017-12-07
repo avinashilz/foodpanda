@@ -11,7 +11,9 @@
     </a> 
 </div>
 
-{{ Form::model($item, ['route' => ['admin.updateitem',$item->id],'files'=>true])}} 
+{{ Form::model($item, ['route' => ['admin.updateitem',$restroid, $item->id],'files'=>true])}} 
+
+
 {{ csrf_field() }}
 {{ method_field('PUT') }}
 

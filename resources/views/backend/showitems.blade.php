@@ -10,6 +10,11 @@
     </a> 
 </div>
 
+<div class="row"> 
+    <a href="{{ route('admin.additemform', ['id' => $restroid])}}">
+        Add Item
+    </a> 
+</div>
 <div>
     @foreach($categories as $category)
 
@@ -24,11 +29,11 @@
             <div class="row">
                 <div class="col-sm-5"> <h4>  {{$item->name}}</h4></div> <div class="col-sm-2"><h4> {{$item->price}} </h4> </div>
                 <div class="col-sm-1">
-                    <a href="{{ route('admin.edititemform',['id'=> $item->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>            
+                    <a href="{{ route('admin.edititemform', [$restroid, $item->id]) }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>            
                 </div>
                 <div class="col-sm-1">
                     {{ Form::open([
-                            'route' => ['admin.item.destroy', $item->id],
+                            'route' => ['admin.item.destroy', $restroid, $item->id],
                             'method' => 'delete'
                         ]) }}
 
@@ -44,7 +49,6 @@
 
     @endforeach
 
-</div>
 </div>
 
 @endsection

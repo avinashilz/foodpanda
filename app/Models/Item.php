@@ -22,4 +22,8 @@ class Item extends Model
 //        Same
 //        return $this->hasMany(Item::class);
     } 
+    
+     public function orderItems() {
+        return $this->hasMany('App\Models\OrderItem');
+    }
 }

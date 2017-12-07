@@ -39,36 +39,36 @@ class ItemsController extends Controller {
         return redirect()->route('admin.restaurants.index');
     }
 
-    public function edit(int $id) {
+    public function edit(int $restroid, int $itemid) {
         
-        $item =  Item::where('id', $id)->first();
+        $item =  Item::where('id', $itemid)->firstOrFail();
 //        dd($item->toArray());
 
-        return view('backend.edititem', compact('item'));
+        return view('backend.edititem', compact('item', 'restroid'));
     }
 
-    public function update(Request $request, int $id) {
+    public function update(Request $request, int $restroid, int $itemid) {
 //        dd($request->all());
         
          $this->validate($request, [
             'name' => 'required',
             'price' => 'required',    
         ]);
-         
-         $update = Item::find($id);
+         $update = Item::find($itemid);
          
          $update->name = $request->name;
          $update->price = $request->price;
          $update->save();
 //         dd('12');
-        return redirect()->route('admin.restaurants.index');
+        return redirect()->route('admin.restaurants.show',['id'=>$restroid]);
+//        return redirect('admin/restaurants/'.$i);
     }
     
-    public function destroy(int $id) {
+    public function destroy(int $restroid, int $itemid) {
         
-        Item::where('id', $id)->delete();
+        Item::where('id', $itemid)->delete();
 
-        return redirect()->route('admin.restaurants.index');
+        return redirect()->route('admin.restaurants.show',['id'=>$restroid]);
     }
 
 }
