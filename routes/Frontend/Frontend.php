@@ -20,9 +20,10 @@ Route::group(['middleware' => 'auth'], function () {
          */
         Route::get('home', 'DashboardController@index')->name('dashboard');
         
-        Route::post('/search', 'DashboardController@search')->name('search');
-
         Route::get('/search/{restroid}', 'DashboardController@show')->name('show');
+        
+        Route::get('/search', 'DashboardController@search')->name('search');
+
         
 //        Route::get('/search/{longitude}/{latitude}', 'DashboardController@show1')->name('show1');
         
