@@ -15,22 +15,26 @@
 
 
 
-    <div class="js-location-search location-search location-search-main-page  location_city_area  ">
+   <div class="js-location-search location-search location-search-main-page  location_city_area  ">
         <div class="location-search-inner">
             <form action="{{route('frontend.user.search')}}" method="POST">
 
                 {{ csrf_field() }}
-
+                <div class="city">
+                    <div class="dropdown-typeahead-wrapper" id="wrapper-element-1">
+                        {{Form::select('size', ['restaurant' => 'Restaurant', 'city' => 'City'], null, ['placeholder' => 'Search By....'])}}
+                        <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
+                        </span></span>
+                        <i class="icon-caret icon-down-arrow"></i>
+                    </div>
+                </div>
                 <div class="area">
                     <label for="area" class="required">Enter your area</label>
-                    <span class="twitter-typeahead" style="position: relative; display: inline-block; direction: ltr;">
-                        <input type="text" data-prefill="location.areaName" class="form-control tt-hint" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
-                        <input type="text" id="area" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
-                        <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Open Sans; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-transform: none;"></pre>
-                        <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none; right: auto;">
-                            <div class="tt-dataset-area"></div></span></span>
-                    <span id="area-not-selected-error" class="help-inline">
-
+                    <input type="text" data-url="{{route('frontend.user.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
+                    <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px;right: auto;">
+                       
+                            <ul id="searchResults" data-url="{{route('frontend.user.search')}}">
+                            </ul>
                     </span>
                 </div>
 
