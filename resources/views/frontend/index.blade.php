@@ -189,7 +189,7 @@
     </div> 
     <div class="js-location-search location-search location-search-main-page  location_city_area  ">
         <div class="location-search-inner">
-            <form action="{{route('frontend.restaurantSearch')}}" method="GET">
+            <form action="{{route('frontend.restaurantsearchbygeolocation')}}" method="GET">
 
                 {{ csrf_field() }}
                 <div class="city">
@@ -202,11 +202,23 @@
                 </div>
                 <div class="area">
                     <label for="area" class="required">Enter your area</label>
-                    <input type="text" data-url="{{route('frontend.restaurantSearch')}}" id="areaSearch" name="restaurantName" required="required" class="form-control" placeholder="Enter an area" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
+                    <input disabled type="text" data-url="{{route('frontend.restaurantSearch')}}" id="areaSearch" name="restaurantName" required="required" class="form-control" placeholder="Enter an area" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
+
+                    <div class="form-group">
+                        
+                        <input data-url="{{route('frontend.restaurantsearchbygeolocation')}}" class="placepicker form-control" data-latitude-input="#latitude" data-longitude-input="#longitude"/>
+                        
+                        <input id="latitude" name="latitude" type="hidden" value="">
+                         <input id="longitude" name="longitude" type="hidden" value="">
+                    </div>
+<!--                    <div id="collapseOne" class="collapse">
+                        <div class="placepicker-map thumbnail"></div>
+                    </div>-->
+
                     <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px;right: auto;">
-                       
-                            <ul id="searchResults" data-url="{{route('frontend.restaurantSearch')}}">
-                            </ul>
+
+                        <ul id="searchResults" data-url="{{route('frontend.restaurantSearch')}}">
+                        </ul>
                     </span>
                 </div>
 

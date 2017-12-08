@@ -26,7 +26,7 @@
                 </div>
                 <div class="area">
                     <label for="area" class="required">Enter your area</label>
-                    <input type="text" data-url="{{route('frontend.user.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
+                    <input disabled type="text" data-url="{{route('frontend.user.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
                     <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px;right: auto;">
                        
                             <ul id="searchResults" data-url="{{route('frontend.user.search')}}">
