@@ -39,43 +39,19 @@ class DashboardController extends Controller {
         }
     }
 
-    public function searchbygeolocation($query, $radius = 10, $longitude = 76.69, $latitude = 30.70) {
+    public function searchbygeolocation($radius = 10, $longitude = 76.69, $latitude = 30.70) {
 //        $this->validate(request(), [
 //            'longtitude' => 'required',
 //            'latitude' => 'required',
 //        ]);
 
-        /**
-         * In order for this to work correctly, you need a $location object
-         * with a ->latitude and ->longitude.
-         */
         $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
-//        dd($haversine);
-        dd($query = Restaurant::
-                select('id', 'name', 'address', 'phone', 'contact_person')
-                ->selectRaw("{$haversine} AS distance")
-                ->whereRaw("{$haversine} < ?", [$radius]))->toArray();
+        $results = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
+                        ->selectRaw("{$haversine} AS distance")
+                        ->whereRaw("{$haversine} < ?", [$radius])->get();
+        dd($results->toArray());
     }
 
-//        $circle_radius = 3959;
-//        $max_distance = 20;
-//        $lat = 76.69;
-//        $lng = 76.69;
-//
-//        return $candidates = Restaurant::select(
-//                        'SELECT * FROM
-//                    (SELECT id, name, address, phone, (' . $circle_radius . ' * acos(cos(radians(' . $lat . ')) * cos(radians(latitude)) *
-//                    cos(radians(longitude) - radians(' . $lng . ')) +
-//                    sin(radians(' . $lat . ')) * sin(radians(latitude))))
-//                    AS distance
-//                    FROM candidates) AS distances
-//                WHERE distance < ' . $max_distance . '
-//                ORDER BY distance
-//                OFFSET 0
-//                LIMIT 20;
-//            ');
-//        dd($candidates);
-//    }
 
     public function show(int $restroid) {
 //        $categories = Category::with(['items' => function($query) use($restroid) {
