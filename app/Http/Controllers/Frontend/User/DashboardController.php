@@ -34,16 +34,8 @@ class DashboardController extends Controller {
 
         if (isset($restaurants)) {
 
-            if ($restaurants->count() == 1) {
-
-                $restro = $restaurants->first();
-
-                return redirect()->route('frontend.user.show', ['id' => $restro->id]);
-            } else {
-
-//                return view('frontend.user.search', compact('restaurants'));
+           
                 return $restaurants->toJson();
-            }
         }
     }
     
