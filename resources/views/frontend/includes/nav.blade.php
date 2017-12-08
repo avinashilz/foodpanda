@@ -68,7 +68,7 @@
         </div>
 
 
-        <a href="http://zomotolocal.com/" class="active header-logo">        
+        <a href="" class="active header-logo">        
             <img alt="Logo" src="//asia-public.foodpanda.com/assets/production/in/layout/themes/capricciosa_foodpanda/images/en/logo.png?v=1459438060"> </a>
 
         <div class="header-links">
