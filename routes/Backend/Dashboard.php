@@ -17,8 +17,8 @@ Route::put('restaurants/{restroid}/edititem/{itemid}', 'ItemsController@update')
 
 Route::delete('restaurants/{restroid}/deleteitem/{itemid}', 'ItemsController@destroy')->name('item.destroy');
 
-Route::get('fileentry', 'FileEntryController@index')->name('file');
+//Route::get('fileentry', 'FileEntryController@index')->name('file');
 
 Route::get('fileentry/get/{filename}', 'FileEntryController@get')->name('getentry');
 
-Route::post('fileentry/add', 'FileEntryController@add')->name('addentry');
+//Route::post('fileentry/add', 'FileEntryController@add')->name('addentry');

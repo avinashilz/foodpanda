@@ -19,9 +19,14 @@ Route::group(['middleware' => 'auth'], function () {
          * User Dashboard Specific
          */
         Route::get('home', 'DashboardController@index')->name('dashboard');
+        
         Route::post('/search', 'DashboardController@search')->name('search');
 
         Route::get('/search/{restroid}', 'DashboardController@show')->name('show');
+        
+//        Route::get('/search/{longitude}/{latitude}', 'DashboardController@show1')->name('show1');
+        
+        
         
         
         Route::get('/loggedInUserAllOrder', 'DashboardController@logged_in_user_all_order')->name('logged_in_user_all_order');

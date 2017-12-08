@@ -24,7 +24,6 @@ class DashboardController extends Controller {
     }
 
     public function search() {
-        ;
         $this->validate(request(), [
             'restaurantName' => 'required',
         ]);
@@ -42,23 +41,32 @@ class DashboardController extends Controller {
                 return redirect()->route('frontend.user.show', ['id' => $restro->id]);
             } else {
 
-                return view('frontend.user.search', compact('restaurants'));
+//                return view('frontend.user.search', compact('restaurants'));
+                return $restaurants->toJson();
             }
         }
     }
+    
+    public function search1() {
+        $this->validate(request(), [
+            'longtitude' => 'required',
+            'latitude' => 'required',
+        ]);
+        
+    }
 
     public function show(int $restroid) {
-        $categories = Category::with(['items' => function($query) use($restroid) {
-                        $query->where('resturants_id', $restroid);
-                    }])->get();
-
-//        dd($categories->toArray());
-
-        $categories = Category::whereHas('items', function($query) use($restroid) {
-                    $query->where('resturants_id', $restroid);
-                })->with(['items' => function($query) use($restroid) {
-                        $query->where('resturants_id', $restroid);
-                    }])->get();
+//        $categories = Category::with(['items' => function($query) use($restroid) {
+//                        $query->where('resturants_id', $restroid);
+//                    }])->get();
+//
+////        dd($categories->toArray());
+//
+//        $categories = Category::whereHas('items', function($query) use($restroid) {
+//                    $query->where('resturants_id', $restroid);
+//                })->with(['items' => function($query) use($restroid) {
+//                        $query->where('resturants_id', $restroid);
+//                    }])->get();
 
         $categories = Category::whereHas('items', function ($query) use($restroid) {
                     $query->where('resturants_id', $restroid);
@@ -100,7 +108,7 @@ class DashboardController extends Controller {
 
     public function most_popular_Chines_item_in_2_months() {
         $categoryId = 11;
-        $userid = auth()->user()->id;
+//        $userid = auth()->user()->id;
 //        dd($userid);
 //        $chines = Category::where('id', $categoryId)->whereHas('items', function($query) use($categoryId) {
 //            $query->whereHas('orderitems');
@@ -132,23 +140,24 @@ class DashboardController extends Controller {
     }
 
     public function most_popular_Chines_restaurants() {
-        
+        $categoryId = 11;
+        $item = OrderItem::whereHas('item', function ($query) use($categoryId) {
+                    $query->where('category_id', $categoryId);
+                })->with('item.restaurant')->select('id', 'item_id', \DB::raw('count(*) as total'))->groupBy('item_id')->orderBy('total', 'desc')->take(1)->get();
+        dd($item->toArray());
     }
 
     public function user() {
         $users = User::all()->keyBy('age');
         dump($users->toArray());
-        $a =1;
-        foreach($users as $key=> $user) {
-            if($a%3 == 0) {
+        $a = 1;
+        foreach ($users as $key => $user) {
+            if ($a % 3 == 0) {
                 $users->forget($key);
             }
             $a++;
-            
         }
-            dd($users->toArray());
-       
+        dd($users->toArray());
     }
 
-    
 }
