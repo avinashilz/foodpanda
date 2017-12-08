@@ -186,14 +186,10 @@
             <h1>Order delicious food online!</h1>
             <h2>Order food online from the best restaurants near you</h2>
         </div>
-    </div>
-
-
-
-
+    </div> 
     <div class="js-location-search location-search location-search-main-page  location_city_area  ">
         <div class="location-search-inner">
-            <form action="{{route('frontend.user.search')}}" method="POST">
+            <form action="{{route('frontend.restaurantSearch')}}" method="GET">
 
                 {{ csrf_field() }}
                 <div class="city">
@@ -206,16 +202,12 @@
                 </div>
                 <div class="area">
                     <label for="area" class="required">Enter your area</label>
-                    <input type="text" data-url="{{route('frontend.user.search')}}" id="areaSearch" name="restaurantName" required="required" data-prefill="location.areaName" class="form-control tt-input" placeholder="Enter an area" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
+                    <input type="text" data-url="{{route('frontend.restaurantSearch')}}" id="areaSearch" name="restaurantName" required="required" class="form-control" placeholder="Enter an area" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
                     <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px;right: auto;">
                        
-                            <ul id="searchResults" data-url="{{route('frontend.user.search')}}">
+                            <ul id="searchResults" data-url="{{route('frontend.restaurantSearch')}}">
                             </ul>
-                       
                     </span>
-
-
-
                 </div>
 
                 <div class="find-food">

@@ -17,8 +17,12 @@ $(document).ready(function () {
                         $('#searchResults').append('<li><a href="'+restaurantUrl+'/'+v.id+'">' + v.name + '</a></li>');
                     });
 
+                },
+                error:function(err){
+                    
                 }
             });
+            return;
         } else {
             $('#searchResults').html('');
         }

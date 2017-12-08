@@ -11,13 +11,9 @@
             <h2>Order food online from the best restaurants near you</h2>
         </div>
     </div>
-
-
-
-
    <div class="js-location-search location-search location-search-main-page  location_city_area  ">
         <div class="location-search-inner">
-            <form action="{{route('frontend.user.search')}}" method="POST">
+            <form action="{{route('frontend.user.search')}}" method="GET">
 
                 {{ csrf_field() }}
                 <div class="city">

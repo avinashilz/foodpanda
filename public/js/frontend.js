@@ -43288,7 +43288,7 @@ $(function () {
         $loading.show();
     }).ajaxError(function (event, jqxhr, settings, thrownError) {
         $loading.hide();
-        location.reload();
+//        location.reload();
     }).ajaxStop(function () {
         $loading.hide();
     }).on('draw.dt', function () {
