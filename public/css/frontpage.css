@@ -258,7 +258,7 @@ a.change-location-link {
 
 .location-search.location_city_area .area {
     float: left;
-    width: 66.6666%;
+    width: 33.33%;
     position: relative;
     min-height: 1px;
 }
@@ -291,6 +291,66 @@ form label {
     position: relative;
     min-height: 1px;
 }
+
+.searchdropdown{
+    width: 34%;
+}
+.location-search.location_city_area .city {
+    float: left;
+    width: 33.33333333%;
+}
+.dropdown-typeahead-wrapper {
+    position: relative;
+}
+.location-search form>div:first-of-type input, .location-search form>div:first-of-type select {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    width:100%;
+    background-color: #fff;
+    color: #1c9767;
+
+}
+.location-search select {
+    height: 46px;
+    padding: 10px 16px;
+    line-height: 1.3333333;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 300;
+    border: solid 1px #1c9767;
+    border-radius: 0;
+}
+.dropdown-typeahead-wrapper>.twitter-typeahead {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    direction: ltr;
+}
+.tt-dropdown-menu {
+    width: 100%;
+
+    padding: 0;
+    background-color: #fff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border: solid 1px #20ac76;
+    border-top: 0;
+    margin-top: -13px;
+}
+#searchResults{
+    padding-left: 20px;
+    font-size: 16px;
+}
+#searchResults>li{
+    list-style: none;
+    margin-top: 20px;
+}
+#searchResults>li>a{
+    color: #000;
+    text-decoration: none;
+}
+
 .location-search input {
     height: 46px;
     padding: 10px 16px;
@@ -298,9 +358,10 @@ form label {
     border-radius: 2px;
     font-size: 18px;
     font-weight: 300;
-    border: solid 1px #5de24a;
+    border: solid 1px #1c9767;
     border-radius: 0;
 }
+
 .location-search .find-food .btn {
     line-height: 24px;
     font-size: 16px;
@@ -318,14 +379,14 @@ form label {
 }
 .btn-primary {
     color: #fff;
-    background-color: #5de24a;
-    border-color: #5de24a;
+    background-color: #20ac76;
+    border-color: #1c9767;
 }
 
 .btn-primary:hover{
     color: #fff;
-    background-color: #5de24a;
-    border-color: #5de24a;
+    background-color: #20ac76;
+    border-color: #1c9767;
 }
 /*content-overlay section*/
 .homepage-area-selection-container .container-overlay {
