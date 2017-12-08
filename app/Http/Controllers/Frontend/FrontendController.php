@@ -31,6 +31,19 @@ class FrontendController extends Controller
             return $restaurants->toJson();
         }
     }
+    
+    public function restaurantsearchbygeolocation($radius = 10, $longitude = 76.69, $latitude = 30.70) {
+//        $this->validate(request(), [
+//            'longtitude' => 'required',
+//            'latitude' => 'required',
+//        ]);
+
+        $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
+        $results = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
+                        ->selectRaw("{$haversine} AS distance")
+                        ->whereRaw("{$haversine} < ?", [$radius])->get();
+        dd($results->toArray());
+    }
 
     /**
      * @return \Illuminate\View\View
