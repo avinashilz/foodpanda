@@ -16,6 +16,21 @@ class FrontendController extends Controller
     {
         return view('frontend.index');
     }
+    public function restaurantSearch() {
+        $this->validate(request(), [
+            'restaurantName' => 'required',
+        ]);
+
+        $search = request('restaurantName');
+
+        $restaurants = Restaurant::where('name', 'like', '%' . $search . '%')->get();
+
+        if (isset($restaurants)) {
+
+
+            return $restaurants->toJson();
+        }
+    }
 
     /**
      * @return \Illuminate\View\View

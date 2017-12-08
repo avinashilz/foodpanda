@@ -5,6 +5,7 @@
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', 'FrontendController@index')->name('index');
+Route::get('restaurant/search', 'FrontendController@restaurantSearch')->name('restaurantSearch');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
@@ -25,7 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/search', 'DashboardController@search')->name('search');
 
         
-//        Route::get('/search/{longitude}/{latitude}', 'DashboardController@show1')->name('show1');
+        Route::get('/searchbygeolocation', 'DashboardController@searchbygeolocation')->name('searchbygeolocation');
         
         
         

@@ -34,17 +34,30 @@ class DashboardController extends Controller {
 
         if (isset($restaurants)) {
 
-           
-                return $restaurants->toJson();
+
+            return $restaurants->toJson();
         }
     }
-    
-    public function search1() {
-        $this->validate(request(), [
-            'longtitude' => 'required',
-            'latitude' => 'required',
-        ]);
+
+    public function searchbygeolocation($query, $radius = 10, $longitude = 76.69, $latitude = 30.70) {
+//        $this->validate(request(), [
+//            'longtitude' => 'required',
+//            'latitude' => 'required',
+//        ]);
+
+        /**
+         * In order for this to work correctly, you need a $location object
+         * with a ->latitude and ->longitude.
+         */
+    $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
+//        dd($haversine);
+        dd($query = Restaurant::
+                        select('id','name','address','phone','contact_person')
+                        ->selectRaw("{$haversine} AS distance")
+                        ->whereRaw("{$haversine} < ?", [$radius]))->toArray();
         
+                        
+//                    
     }
 
     public function show(int $restroid) {
