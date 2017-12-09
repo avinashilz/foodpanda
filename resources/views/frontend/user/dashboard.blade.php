@@ -13,7 +13,7 @@
     </div>
    <div class="js-location-search location-search location-search-main-page  location_city_area  ">
         <div class="location-search-inner">
-            <form action="{{route('frontend.user.search')}}" method="GET">
+            <form action="{{route('frontend.user.searchbygeolocation')}}" method="GET">
 
                 {{ csrf_field() }}
                 <div class="city">
