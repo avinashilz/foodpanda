@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\Category;
 /**
  * Class FrontendController.
  */
@@ -16,6 +17,8 @@ class FrontendController extends Controller
     {
         return view('frontend.index');
     }
+    
+    
     public function restaurantSearch() {
         $this->validate(request(), [
             'restaurantName' => 'required',
@@ -32,17 +35,33 @@ class FrontendController extends Controller
         }
     }
     
-    public function restaurantsearchbygeolocation($radius = 10, $longitude = 76.69, $latitude = 30.70) {
-//        $this->validate(request(), [
-//            'longtitude' => 'required',
-//            'latitude' => 'required',
-//        ]);
+    public function restaurantsearchbygeolocation($radius = 15) {
+        $this->validate(request(), [
+            'latlong' => 'required',
+        ]);
+        
+        $longitude = request('longitude');
+        $latitude = request('latitude');
+        
+//        dd($latitude);
 
         $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
         $results = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
                         ->selectRaw("{$haversine} AS distance")
                         ->whereRaw("{$haversine} < ?", [$radius])->get();
-        dd($results->toArray());
+        $results = $results->toArray();
+        dd($results);
+        return view('', compact('results'));
+    }
+    
+    public function restaurantShow(int $restroid) {
+
+        $categories = Category::whereHas('items', function ($query) use($restroid) {
+                    $query->where('resturants_id', $restroid);
+                })->with(['items' => function($query) use($restroid) {
+                        $query->where('resturants_id', $restroid);
+                    }])->get();
+        return view('frontend.user.show', compact('categories', 'restroid'));
     }
 
     /**

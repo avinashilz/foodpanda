@@ -5,8 +5,9 @@
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', 'FrontendController@index')->name('index');
-Route::get('restaurantSearch', 'FrontendController@restaurantSearch')->name('restaurantSearch');
-Route::get('/restaurantsearchbygeolocation', 'FrontendController@restaurantsearchbygeolocation')->name('restaurantsearchbygeolocation');
+Route::get('restaurantSearch/{restroid}', 'FrontendController@restaurantShow')->name('restaurantShow');
+Route::get('restaurantsearchbyname', 'FrontendController@restaurantSearch')->name('restaurantSearch');
+Route::get('/restaurantsearch', 'FrontendController@restaurantsearchbygeolocation')->name('restaurantsearchbygeolocation');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
@@ -24,7 +25,9 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::get('/search/{restroid}', 'DashboardController@show')->name('show');
         
-        Route::get('/search', 'DashboardController@search')->name('search');
+        Route::get('/searchbyname', 'DashboardController@search')->name('search');
+        
+        Route::get('/search', 'DashboardController@searchbygeolocation')->name('searchbygeolocation');
 
         
         Route::get('/searchbygeolocation', 'DashboardController@searchbygeolocation')->name('searchbygeolocation');

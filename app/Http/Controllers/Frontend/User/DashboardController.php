@@ -39,11 +39,13 @@ class DashboardController extends Controller {
         }
     }
 
-    public function searchbygeolocation($radius = 10, $longitude = 76.69, $latitude = 30.70) {
-//        $this->validate(request(), [
-//            'longtitude' => 'required',
-//            'latitude' => 'required',
-//        ]);
+    public function searchbygeolocation($radius = 10) {
+        $this->validate(request(), [
+            'latlong' => 'required',
+        ]);
+
+        $longitude = request('longitude');
+        $latitude = request('latitude');
 
         $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
         $results = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
@@ -52,19 +54,7 @@ class DashboardController extends Controller {
         dd($results->toArray());
     }
 
-
     public function show(int $restroid) {
-//        $categories = Category::with(['items' => function($query) use($restroid) {
-//                        $query->where('resturants_id', $restroid);
-//                    }])->get();
-//
-////        dd($categories->toArray());
-//
-//        $categories = Category::whereHas('items', function($query) use($restroid) {
-//                    $query->where('resturants_id', $restroid);
-//                })->with(['items' => function($query) use($restroid) {
-//                        $query->where('resturants_id', $restroid);
-//                    }])->get();
 
         $categories = Category::whereHas('items', function ($query) use($restroid) {
                     $query->where('resturants_id', $restroid);
