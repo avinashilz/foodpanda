@@ -33,6 +33,12 @@
                             </ul>
                     </span>
                 </div>
+                 <div class="loc">
+                    <input id="default" data-url="{{route('frontend.restaurantsearchbygeolocation')}}" name="latlong" class="placepicker form-control" data-latitude-input="#latitude" data-longitude-input="#longitude"/>
+
+                    <input id="latitude" name="latitude" type="hidden" value="">
+                    <input id="longitude" name="longitude" type="hidden" value="">
+                </div>
 
                 <div class="find-food">
                     {{ Form::submit('Show restaurants',['class' => 'btn btn-primary btn-block'])}}

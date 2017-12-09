@@ -27,22 +27,28 @@ $(document).ready(function () {
             $('#searchResults').html('');
         }
     });
-    
+
     $('.area').show();
     $('.loc').hide();
-   
+    $('#one').show();
+    $('#two').hide();
+
     $('select[name="size"]').change(function () {
         console.log($(this).val());
         if ($(this).val() === "restaurant") {
             $('.area').show();
             $('.loc').hide();
+            $('#one').show();
+            $('#two').hide();
             $('#areaSearch').prop('disabled', false);
         }
         if ($(this).val() === "city") {
-            
+
             $('.area').hide();
             $('.loc').show();
-           
+            $('#one').hide();
+            $('#two').show();
+
 
         }
     });
