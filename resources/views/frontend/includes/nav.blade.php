@@ -82,7 +82,8 @@
                 <li class=""nochange>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>
                 @endif
                 @else
-                <ul class="header-links__list">
+                  <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
+<!--                <ul class="header-links__list">
                     <li class="dropdown header-links__customer-account">
                         <a href="/customer/account" data-toggle="dropdown">
                             <i class="fa fa-user-o" aria-hidden="true"> </i>
@@ -98,7 +99,7 @@
                             <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
                         </ul>
                     </li>
-                </ul>
+                </ul>-->
                 @endif
             </ul>
         </div>
