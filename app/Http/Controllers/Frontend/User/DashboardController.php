@@ -51,7 +51,7 @@ class DashboardController extends Controller {
         $restaurants = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
                         ->selectRaw("{$haversine} AS distance")
                         ->whereRaw("{$haversine} < ?", [$radius])->get();
-        $restaurants = $restaurants->toArray();
+        
         return view('frontend.user.search', compact('restaurants'));
     }
 
