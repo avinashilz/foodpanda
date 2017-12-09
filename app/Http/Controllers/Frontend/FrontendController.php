@@ -52,7 +52,7 @@ class FrontendController extends Controller {
         $categories = Category::all();
         session()->put('categories', $categories);
         $categoriesInSession = session('categories');
-        return view('frontend.user.search', compact('restaurants', '$categoriesInSession'));
+        return view('frontend.user.search', compact('restaurants', 'categoriesInSession'));
     }
 
     public function restaurantShow(int $restroid) {
