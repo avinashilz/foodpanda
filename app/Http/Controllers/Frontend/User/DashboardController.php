@@ -64,7 +64,7 @@ class DashboardController extends Controller {
                 })->with(['items' => function($query) use($restroid) {
                         $query->where('resturants_id', $restroid);
                     }])->get();
-                    dd($categories);
+//                    dd($categories);
         $categoriesInSession = session('categories');
         
         return view('frontend.user.show', compact('categories', 'restroid'));
