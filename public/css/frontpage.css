@@ -350,6 +350,14 @@ form label {
     color: #000;
     text-decoration: none;
 }
+.loc{
+    width: 33.33%;
+    float: left;
+}
+#default{
+  width: 100%;
+  float: left;
+}
 
 .location-search input {
     height: 46px;
