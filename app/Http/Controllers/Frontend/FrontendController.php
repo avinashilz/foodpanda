@@ -46,12 +46,12 @@ class FrontendController extends Controller
 //        dd($latitude);
 
         $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
-        $results = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
+        $restaurants = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
                         ->selectRaw("{$haversine} AS distance")
                         ->whereRaw("{$haversine} < ?", [$radius])->get();
-        $results = $results->toArray();
-        dd($results);
-        return view('', compact('results'));
+        $restaurants = $restaurants->toArray();
+        
+        return view('frontend.user.search', compact('restaurants'));
     }
     
     public function restaurantShow(int $restroid) {
