@@ -202,11 +202,12 @@
                 </div>
                 <div class="area">
                     <label for="area" class="required">Enter your area</label>
+                   
                     <input disabled type="text" data-url="{{route('frontend.restaurantSearch')}}" id="areaSearch" name="restaurantName" required="required" class="form-control" placeholder="Enter an area" style="position: relative; vertical-align: top; background-color: #fff;z-index: 2">
 
                     <span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px;right: auto;">
 
-                        <ul id="searchResults" data-url="{{route('frontend.restaurantSearch')}}">
+                        <ul id="searchResults" data-url="{{route('frontend.restaurantShow')}}">
                         </ul>
                     </span>
                 </div>
