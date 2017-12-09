@@ -471,3 +471,9 @@ form label {
     margin: 0;
     padding: 0;
 }
+
+/*cart icon*/
+#cart{
+    font-size: 30px;
+    color: #ea5c3a;
+}

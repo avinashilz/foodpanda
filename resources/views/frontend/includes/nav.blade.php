@@ -83,6 +83,7 @@
                 @endif
                 @else
                   <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
+                  <li>  <i style="font-size: 20px;margin-top: 12px;" id="cart" class="fa  fa-cart-arrow-down" aria-hidden="true"></i></li>
 <!--                <ul class="header-links__list">
                     <li class="dropdown header-links__customer-account">
                         <a href="/customer/account" data-toggle="dropdown">
