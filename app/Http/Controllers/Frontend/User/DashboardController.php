@@ -51,8 +51,8 @@ class DashboardController extends Controller {
         $restaurants = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
                         ->selectRaw("{$haversine} AS distance")
                         ->whereRaw("{$haversine} < ?", [$radius])->get();
-        
-        return view('frontend.user.search', compact('restaurants'));
+        $categories = Category::all();
+        return view('frontend.user.search', compact('restaurants', 'categories'));
     }
 
     public function show(int $restroid) {
@@ -62,6 +62,7 @@ class DashboardController extends Controller {
                 })->with(['items' => function($query) use($restroid) {
                         $query->where('resturants_id', $restroid);
                     }])->get();
+                    dd($categories);
         return view('frontend.user.show', compact('categories', 'restroid'));
     }
 
