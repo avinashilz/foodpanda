@@ -52,7 +52,9 @@ class DashboardController extends Controller {
                         ->selectRaw("{$haversine} AS distance")
                         ->whereRaw("{$haversine} < ?", [$radius])->get();
         $categories = Category::all();
-        return view('frontend.user.search', compact('restaurants', 'categories'));
+        session()->put('categories', $categories);
+        $categoriesInSession = session('categories');
+        return view('frontend.user.search', compact('restaurants', 'categoriesInSession'));
     }
 
     public function show(int $restroid) {
@@ -63,6 +65,8 @@ class DashboardController extends Controller {
                         $query->where('resturants_id', $restroid);
                     }])->get();
                     dd($categories);
+        $categoriesInSession = session('categories');
+        
         return view('frontend.user.show', compact('categories', 'restroid'));
     }
 
