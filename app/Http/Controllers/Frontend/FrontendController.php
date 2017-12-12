@@ -97,6 +97,13 @@ class FrontendController extends Controller {
 
         return back();
     }
+    
+    public function showSelectedItem() {
+        
+        $detail = session('additem');
+        
+        return view ('frontend.cart', compact('detail'));
+    }
 
     /**
      * @return \Illuminate\View\View
