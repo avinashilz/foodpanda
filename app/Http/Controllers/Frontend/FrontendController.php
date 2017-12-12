@@ -101,7 +101,7 @@ class FrontendController extends Controller {
     public function showSelectedItem() {
         
         $detail = session('additem');
-        dump($detail);
+
         $totalprice =0;
         foreach($detail as $d) {
             $price = $d['totalprice'];
