@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Restaurant;
 use App\Models\Category;
 use App\Models\Item;
@@ -67,19 +68,19 @@ class FrontendController extends Controller {
         return view('frontend.user.show', compact('categories', 'restroid'));
     }
     
-    public function additem(int $itemid) {
+    public function additem(int $itemid, Request $request) {
 //        dd($itemid);
+        $qty = $request->qty;
+//        dd($qty);
         $item = Item::where('id', $itemid)->select('id', 'name', 'price')->first();
         $price = $item->price;
-        $qty = 2;
         $totalprice = $price*$qty;
-//        dd($totalprice);
         $itemadded = [];
         $itemadded['id'] = $item->id;
         $itemadded['name'] = $item->name;
         $itemadded['quantity'] = $qty;
         $itemadded['totalprice'] = $totalprice;
-//        dd($itemadded);
+        dd($itemadded);
         
         if (empty(session('additem'))) {
             session()->put('additem', [$itemadded]);
@@ -92,7 +93,7 @@ class FrontendController extends Controller {
         
 //            dump(session('additem'));
 //            session()->forget('additem');
-            dd(session('additem'));
+//            dd(session('additem'));
 
         return back();
     }
