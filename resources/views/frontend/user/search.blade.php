@@ -33,7 +33,7 @@
 
 @foreach ($restaurants as $restro)
 <img src="/uploads/{{$restro->image}}" height="150px" width="288px" /> <br> 
-<h3> <a href="{{route('frontend.user.show', $restro->id)}}">
+<h3> <a href="{{route('frontend.restaurantShow', $restro->id)}}">
         {{$restro->name}}</b>
     </a>  </h3>
 <h4>{{$restro->contact_person}}</h4>
@@ -42,8 +42,7 @@
 
 @endforeach
 
-@foreach($categoriesInSession as $cat)
-{{$cat->categories}}
-@endforeach
+
+
 
 @endsection

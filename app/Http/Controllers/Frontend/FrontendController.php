@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
 use App\Models\Category;
+use App\Models\Item;
 
 /**
  * Class FrontendController.
@@ -15,20 +16,20 @@ class FrontendController extends Controller {
      * @return \Illuminate\View\View
      */
     public function index() {
+//        
         return view('frontend.index');
     }
 
     public function restaurantSearch() {
-        $this->validate(request(), [
-            'restaurantName' => 'required',
-        ]);
+//        $this->validate(request(), [
+//            'restaurantName' => 'required',
+//        ]);
 
         $search = request('restaurantName');
 
         $restaurants = Restaurant::where('name', 'like', '%' . $search . '%')->get();
 
         if (isset($restaurants)) {
-
 
             return $restaurants->toJson();
         }
@@ -49,10 +50,8 @@ class FrontendController extends Controller {
                         ->selectRaw("{$haversine} AS distance")
                         ->whereRaw("{$haversine} < ?", [$radius])->get();
 
-        $categories = Category::all();
-        session()->put('categories', $categories);
-        $categoriesInSession = session('categories');
-        return view('frontend.user.search', compact('restaurants', 'categoriesInSession'));
+
+        return view('frontend.user.search', compact('restaurants'));
     }
 
     public function restaurantShow(int $restroid) {
@@ -62,9 +61,40 @@ class FrontendController extends Controller {
                 })->with(['items' => function($query) use($restroid) {
                         $query->where('resturants_id', $restroid);
                     }])->get();
-        $categoriesInSession = session('categories');
+//                    dd($categories->toArray());
+
         
         return view('frontend.user.show', compact('categories', 'restroid'));
+    }
+    
+    public function additem(int $itemid) {
+//        dd($itemid);
+        $item = Item::where('id', $itemid)->select('id', 'name', 'price')->first();
+        $price = $item->price;
+        $qty = 2;
+        $totalprice = $price*$qty;
+//        dd($totalprice);
+        $itemadded = [];
+        $itemadded['id'] = $item->id;
+        $itemadded['name'] = $item->name;
+        $itemadded['quantity'] = $qty;
+        $itemadded['totalprice'] = $totalprice;
+//        dd($itemadded);
+        
+        if (empty(session('additem'))) {
+            session()->put('additem', [$itemadded]);
+//            dump('1');
+//            dd(session('additem'));
+        } else {
+            session()->push('additem', $itemadded);
+//            dump('2');
+        }
+        
+//            dump(session('additem'));
+//            session()->forget('additem');
+            dd(session('additem'));
+
+        return back();
     }
 
     /**

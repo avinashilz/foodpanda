@@ -39,7 +39,7 @@ class DashboardController extends Controller {
         }
     }
 
-    public function searchbygeolocation($radius = 10) {
+    public function searchbygeolocation($radius = 15) {
         $this->validate(request(), [
             'latlong' => 'required',
         ]);

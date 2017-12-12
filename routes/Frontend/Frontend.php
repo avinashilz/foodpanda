@@ -8,6 +8,8 @@ Route::get('/', 'FrontendController@index')->name('index');
 Route::get('restaurantSearch/{restroid?}', 'FrontendController@restaurantShow')->name('restaurantShow');
 Route::get('restaurantsearchbyname', 'FrontendController@restaurantSearch')->name('restaurantSearch');
 Route::get('/restaurantsearch', 'FrontendController@restaurantsearchbygeolocation')->name('restaurantsearchbygeolocation');
+Route::get('/addItem/{itemid}', 'FrontendController@additem')->name('additem');
+
 Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
