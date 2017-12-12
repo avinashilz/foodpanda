@@ -51,13 +51,12 @@ class DashboardController extends Controller {
         $restaurants = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
                         ->selectRaw("{$haversine} AS distance")
                         ->whereRaw("{$haversine} < ?", [$radius])->get();
-        $categories = Category::all();
-        session()->put('categories', $categories);
-        $categoriesInSession = session('categories');
-        return view('frontend.user.search', compact('restaurants', 'categoriesInSession'));
+       
+        return view('frontend.user.search', compact('restaurants'));
     }
 
     public function show(int $restroid) {
+        $restaurantname =  Restaurant::where('id', $restroid)->select('name')->first();
 
         $categories = Category::whereHas('items', function ($query) use($restroid) {
                     $query->where('resturants_id', $restroid);
@@ -65,9 +64,9 @@ class DashboardController extends Controller {
                         $query->where('resturants_id', $restroid);
                     }])->get();
 //                    dd($categories);
-        $categoriesInSession = session('categories');
+       
         
-        return view('frontend.user.show', compact('categories', 'restroid'));
+        return view('frontend.user.show', compact('categories', 'restroid', 'restaurantname'));
     }
     
     public function checkout() {

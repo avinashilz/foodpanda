@@ -49,15 +49,15 @@ class FrontendController extends Controller {
         $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
         $restaurants = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
                         ->selectRaw("{$haversine} AS distance")
-                        ->whereRaw("{$haversine} < ?", [$radius])->get();
-
+                        ->whereRaw("{$haversine} < ?", [$radius])->with('items.category')->get();
+//dd($restaurants->toArray());
 
         return view('frontend.user.search', compact('restaurants'));
     }
 
     public function restaurantShow(int $restroid) {
-        $restaurantname =  Restaurant::where('id', $restroid)->select('name')->get();
-//        dd($restaurantname);
+        $restaurantname = Restaurant::where('id', $restroid)->select('name')->first();
+//        dd($restaurantname->name);
         $categories = Category::whereHas('items', function ($query) use($restroid) {
                     $query->where('resturants_id', $restroid);
                 })->with(['items' => function($query) use($restroid) {
@@ -65,24 +65,24 @@ class FrontendController extends Controller {
                     }])->get();
 //                    dd($categories->toArray());
 
-        
-        return view('frontend.user.show', compact('categories', 'restroid'));
+
+        return view('frontend.user.show', compact('categories', 'restroid', 'restaurantname'));
     }
-    
-    public function additem(int $itemid, Request $request ) {
+
+    public function additem(int $itemid, Request $request) {
 //        dd($restroid);
         $qty = $request->qty;
 //        dd($qty);
         $item = Item::where('id', $itemid)->select('id', 'name', 'price')->first();
         $price = $item->price;
-        $totalprice = $price*$qty;
+        $totalprice = $price * $qty;
         $itemadded = [];
         $itemadded['id'] = $item->id;
         $itemadded['name'] = $item->name;
         $itemadded['quantity'] = $qty;
         $itemadded['totalprice'] = $totalprice;
 //        dd($itemadded);
-        
+
         if (empty(session('additem'))) {
             session()->put('additem', [$itemadded]);
 //            dump('1');
@@ -91,28 +91,28 @@ class FrontendController extends Controller {
             session()->push('additem', $itemadded);
 //            dump('2');
         }
-        
+
 //            dump(session('additem'));
 //            session()->forget('additem');
 //            dd(session('additem'));
 
         return back();
     }
-    
+
     public function showSelectedItem() {
-        
+
         $detail = session('additem');
 
-        $totalprice =0;
-        foreach($detail as $d) {
+        $totalprice = 0;
+        foreach ($detail as $d) {
             $price = $d['totalprice'];
             $totalprice += $price;
 //                $totalprice[] = $price;
         }
 //        dd($totalprice);
-        
-        
-        return view ('frontend.cart', compact('detail', 'totalprice'));
+
+
+        return view('frontend.cart', compact('detail', 'totalprice'));
     }
 
     /**

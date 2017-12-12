@@ -19,7 +19,7 @@ class Restaurant extends Model {
     }
 
     public function items() {
-        return $this->hasMany('App\Models\Item');
+        return $this->hasMany('App\Models\Item', 'resturants_id');
 //        Same
 //        return $this->hasMany(Item::class);
     }
