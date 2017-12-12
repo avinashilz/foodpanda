@@ -55,8 +55,9 @@
                 <div class="col-sm-2"><h4> {{$item->price}} </h4> </div>
                 <div class="col-sm-1">{{Form::number('qty','',['min'=>1,'max'=>10])}} </div>
                 <div class="col-sm-2" style="text-align:  center;">
+                    
                     <a href="{{route('frontend.additem',$item->id)}}">
-                                        <i id="cart" class="fa  fa-cart-arrow-down" aria-hidden="true"></i>
+                                        {{Form::submit('cart')}}
                                     </a>
                     {{ Form::close() }}
                 </div>
