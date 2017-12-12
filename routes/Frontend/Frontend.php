@@ -36,6 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::get('/searchbygeolocation', 'DashboardController@searchbygeolocation')->name('searchbygeolocation');
         
+        Route::get('/checkout, DashboardController@checkout')->name('checkout');
+        
         
         
         

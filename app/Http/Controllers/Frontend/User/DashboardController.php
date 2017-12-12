@@ -69,6 +69,10 @@ class DashboardController extends Controller {
         
         return view('frontend.user.show', compact('categories', 'restroid'));
     }
+    
+    public function checkout() {
+        
+    }
 
     public function logged_in_user_all_order() {
         $userid = auth()->user()->id;
