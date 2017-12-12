@@ -60,49 +60,54 @@
     </div>
 </nav>-->
 <div class="homepage-area-selection-container lazy-loaded" style="background-image: url(&quot;//asia-public.foodpanda.com/assets/production/in/layout/themes/capricciosa_foodpanda/images/en/homepage-splash.jpg?v=1459438060&quot;);">
-<header class="">
+    <header class="">
 
-    <div class="container">
-        <div class="header-mobile-item left">
-            <i class="icon icon-more mobile-menu__menu-toggle"></i>
+        <div class="container">
+            <div class="header-mobile-item left">
+                <i class="icon icon-more mobile-menu__menu-toggle"></i>
+            </div>
+
+
+            <a href="" class="active header-logo">        
+                <img alt="Logo" src="//asia-public.foodpanda.com/assets/production/in/layout/themes/capricciosa_foodpanda/images/en/logo.png?v=1459438060"> </a>
+
+            <div class="header-links">
+                <ul class="nav navbar-nav navbar-right">
+
+
+                    @if (! $logged_in_user)
+                    <li class="nochange">{{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
+
+                    @if (config('access.users.registration'))
+                    <li class=""nochange>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>
+                     <a href="{{ route('frontend.showSelectedItem') }}">
+                     <i style="font-size: 20px; margin-top: 12px;" id="cart" class="fa  fa-cart-arrow-down" aria-hidden="true"></i>
+                    </a>
+                    @endif
+                    @else
+                    <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
+                    <a href="{{ route('frontend.showSelectedItem') }}">
+                     <i style="font-size: 20px; margin-top: 12px;" id="cart" class="fa  fa-cart-arrow-down" aria-hidden="true"></i>
+                    </a>
+                    <!--                <ul class="header-links__list">
+                      <li class="dropdown header-links__customer-account">
+                          <a href="/customer/account" data-toggle="dropdown">
+                              <i class="fa fa-user-o" aria-hidden="true"> </i>
+                              <span class="label1">My Account</span>
+                              <i class="fa fa-angle-down" aria-hidden="true"></i>
+                          </a>
+  
+                          <ul class="dropdown-menu" role="menu">
+                              @permission('view-backend')
+                              <li>{{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) }}</li>
+                              @endauth
+                              <li>{{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => active_class(Active::checkRoute('frontend.user.account')) ]) }}</li>
+                              <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
+                          </ul>
+                      </li>
+                  </ul>-->
+                    @endif
+                </ul>
+            </div>
         </div>
-
-
-        <a href="" class="active header-logo">        
-            <img alt="Logo" src="//asia-public.foodpanda.com/assets/production/in/layout/themes/capricciosa_foodpanda/images/en/logo.png?v=1459438060"> </a>
-
-        <div class="header-links">
-            <ul class="nav navbar-nav navbar-right">
-               
-
-                @if (! $logged_in_user)
-                <li class="nochange">{{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}</li>
-
-                @if (config('access.users.registration'))
-                <li class=""nochange>{{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}</li>
-                @endif
-                @else
-                  <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
-                  <li>  <i style="font-size: 20px;margin-top: 12px;" id="cart" class="fa  fa-cart-arrow-down" aria-hidden="true"></i></li>
-<!--                <ul class="header-links__list">
-                    <li class="dropdown header-links__customer-account">
-                        <a href="/customer/account" data-toggle="dropdown">
-                            <i class="fa fa-user-o" aria-hidden="true"> </i>
-                            <span class="label1">My Account</span>
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            @permission('view-backend')
-                            <li>{{ link_to_route('admin.dashboard', trans('navs.frontend.user.administration')) }}</li>
-                            @endauth
-                            <li>{{ link_to_route('frontend.user.account', trans('navs.frontend.user.account'), [], ['class' => active_class(Active::checkRoute('frontend.user.account')) ]) }}</li>
-                            <li>{{ link_to_route('frontend.auth.logout', trans('navs.general.logout')) }}</li>
-                        </ul>
-                    </li>
-                </ul>-->
-                @endif
-            </ul>
-        </div>
-    </div>
-</header>
+    </header>
