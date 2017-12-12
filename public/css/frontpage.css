@@ -477,3 +477,10 @@ form label {
     font-size: 30px;
     color: #fff;
 }
+.order{
+    margin-left: 20px;
+}
+#delivery{
+    color:#39c;
+    font-weight: 700;
+}

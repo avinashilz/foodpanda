@@ -42,7 +42,9 @@
 
 @endforeach
 
-
-
+@foreach($categoriesInSidebar as$cat)
+{{$cat->id}}
+{{$cat->categories}}
+@endforeach
 
 @endsection

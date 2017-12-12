@@ -38,7 +38,6 @@
                             'route' => ['admin.item.destroy', $restroid, $item->id],
                             'method' => 'delete'
                         ]) }}
-
                     {{ csrf_field() }}
                     {{ Form::submit('X',['class' => 'btn cross'])}}
                     {{ Form::close() }}
