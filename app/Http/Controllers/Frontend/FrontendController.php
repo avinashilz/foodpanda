@@ -80,7 +80,7 @@ class FrontendController extends Controller {
         $itemadded['name'] = $item->name;
         $itemadded['quantity'] = $qty;
         $itemadded['totalprice'] = $totalprice;
-        dd($itemadded);
+//        dd($itemadded);
         
         if (empty(session('additem'))) {
             session()->put('additem', [$itemadded]);
