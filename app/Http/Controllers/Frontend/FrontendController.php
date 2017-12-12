@@ -63,7 +63,7 @@ class FrontendController extends Controller {
                 })->with(['items' => function($query) use($restroid) {
                         $query->where('resturants_id', $restroid);
                     }])->get();
-                    dd($categories->toArray());
+//                    dd($categories->toArray());
 
         
         return view('frontend.user.show', compact('categories', 'restroid'));

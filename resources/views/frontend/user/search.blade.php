@@ -30,21 +30,102 @@
 </div>
 <div class="container-overlay container-overal-rlp"></div>
 </div>
+<div class="breadcrumbs">
+    <div class="container">
+        <a href="{{route('frontend.index')}}"> Home </a> > Restaurants
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2" style="
+         margin-left: 50px;
+         ">
 
-@foreach ($restaurants as $restro)
-<img src="/uploads/{{$restro->image}}" height="150px" width="288px" /> <br> 
-<h3> <a href="{{route('frontend.restaurantShow', $restro->id)}}">
-        {{$restro->name}}</b>
-    </a>  </h3>
-<h4>{{$restro->contact_person}}</h4>
-<h4>{{$restro->phone}}</h4>
-<h4>{{$restro->address}}</h4>
+        <div class="row aside">
 
-@endforeach
+            <aside class="clearfix">
+                <div id="sticky-wrapper" class="sticky-wrapper">
+                    <div class="js-sticky-element js-vendor-detail-menu-categories" data-sticky-bottom-margin="40" style="">
 
+                        <ul class="categories__list ">
+                            @foreach($categoriesInSidebar as$cat)
+                            <li class='categories__list__item'> <a href='#'>
+                                    {{$cat->categories}}
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+
+    </div>
+    <div id="restrosection" class='col-sm-8'>
+
+
+        @foreach ($restaurants as $restro)
+        <article class="vendor">
+            <a class="vendor__inner" href="{{route('frontend.restaurantShow', $restro->id)}}">
+                <div class="vendor__image">
+                    <img src="{{$restro->image}}" height="80px" width="80px" /> <br> 
+                </div>
+                <div class="vendor__details">
+                    <div class="vendor__title">
+                        <span class="vendor__name">
+                            {{$restro->name}}
+                        </span>
+
+                        <div class="clear"></div>
+                    </div>
+                    <ul class="vendor__cuisines">
+                        <li> North Indian </li>
+                        <li> Chinease </li>
+                        <li> Breads </li>
+                        <li> Snacks </li>
+                    </ul>
+
+                    <div class="vendor__details__footer">
+                        <div class="vendor__affordability" data-tooltip-element=".price-tooltip-s5ya">
+                            <span class="vendor__affordability__value">₹₹₹</span>
+
+                        </div>
+
+                        <div class="vendor__ratings_recommendation__container">
+                            <div class="vendor__ratings">
+
+
+                                <div class="rating  ">
+
+
+                                    <div class="rateit" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+                                    <span class="review">
+                                        (<span>172</span>)
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="vendor__info">
+
+                    delivers in <b> 60 mins </b>
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+
+                </div>
+            </a>
+        </article>
+        @endforeach
+
+
+
+    </div>
+</div>
 @foreach($categoriesInSidebar as$cat)
 {{$cat->id}}
 {{$cat->categories}}
 @endforeach
-
 @endsection

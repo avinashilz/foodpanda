@@ -27,7 +27,8 @@
 </div>
 <div class="container-overlay container-overal-rlp"></div>
 </div>
-
+<a href="#" onclick="history.go(-1)">
+    <i class="fa fa-hand-o-left" aria-hidden="true"></i> </a>
 <div>
     @foreach($categories as $category)
 
@@ -53,7 +54,7 @@
 
                 <div class="col-sm-5"> <h4>{{$item->name}}</h4></div> 
                 <div class="col-sm-2"><h4> {{$item->price}} </h4> </div>
-                <div class="col-sm-1">{{Form::number('qty','',['min'=>1,'max'=>10])}} </div>
+                <div class="col-sm-1">{{Form::number('qty','1',['min'=>1,'max'=>50])}} </div>
                 <div class="col-sm-2" style="text-align:  center;">
 
                     <a href="{{route('frontend.additem',$item->id)}}">

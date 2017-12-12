@@ -16,7 +16,7 @@
     </a> 
 </div>
 <div>
-   
+
     @foreach($categories as $category)
 
     <div class="col-sm-6">

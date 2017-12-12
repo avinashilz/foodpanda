@@ -1,5 +1,7 @@
 body{
-    background-color: #fff;
+    background: #ededed;
+    color: #333;
+    overflow-y: scroll;
     line-height: 1.42857143;
 }
 /*header*/
@@ -355,8 +357,8 @@ form label {
     float: left;
 }
 #default{
-  width: 100%;
-  float: left;
+    width: 100%;
+    float: left;
 }
 
 .location-search input {
@@ -483,4 +485,152 @@ form label {
 #delivery{
     color:#39c;
     font-weight: 700;
+}
+.fa-hand-o-left {
+    font-size: 40px;
+    margin-left: 10px;
+    color: #3fa75a;
+}
+
+
+.breadcrumbs{
+    width: 100%;
+    background: 0 0;
+    font-size: 14px;
+    font-weight: 300;
+    color: #8e969d;
+    position: relative;
+    padding: 11px;
+}
+.aside{
+    position: relative;
+    float: left;
+    width: 25%;
+}
+.js-sticky-element{
+    width: 183px;
+    position: fixed;
+    top: 20px;
+}
+.a-btn{
+    background: #ddd;
+    border: 1px solid #ccc;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.a-side-btn{
+    background: red;
+}
+.categories__list{
+    list-style: none;
+}
+.categories__list__item {
+    position: relative;
+    font-weight: 300;
+    color: #8e969d;
+}
+.categories__list__item a{
+    color: inherit;
+    text-decoration: none;
+}
+#restrosection{
+    position: relative;
+    background-color: #fff;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    padding-left: 0;
+    padding-right: 0;
+}
+article{
+    display: block;
+    width:100%;
+    float:left;
+}
+.vendor {
+    position: relative;
+    border-bottom: 1px solid #ededed;
+}
+.vendor__inner{
+    position: relative;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    min-height: 100px;
+    background-color: transparent;
+    color:#b4bfd3;
+}
+.vendor__image{
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ededed;
+    background: #fff;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+}
+.vendor__image img{
+    display: inline-block;
+    border-radius: 3px;
+}
+.vendor__details {
+    min-width: 300px;
+    max-width: 400px;
+    float: left;
+    margin-left: 25px;
+    position: relative;
+}
+.vendor__title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    margin-top: 5px;
+    color:#333;
+}
+.vendor__name {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+.clear {
+    clear: both;
+}
+.vendor__cuisines {
+    margin-bottom: 0;
+    color: #8e969d;
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 100%;
+    overflow: hidden;
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+    margin: 0;
+}
+.vendor__cuisines>li {
+    display: inline-block;
+}
+.vendor__details__footer .vendor__affordability {
+    float: left;
+    margin-right: 20px;
+}
+
+.vendor__info {
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    right: 0;
+}
+ .fa-angle-right {
+    float: right;
+    margin-right: 10px;
+    display: inline-block;
+    color: #8e969d;
+    font-size: 20px;
+    margin-left: 45px;
+    margin-right: 15px;
 }

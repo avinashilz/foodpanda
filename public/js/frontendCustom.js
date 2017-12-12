@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function () {  
     $('#areaSearch').on('keyup', function () {
         var keyword = $(this).val();
         var searchUrl = $(this).data('url');
@@ -27,7 +27,8 @@ $(document).ready(function () {
             $('#searchResults').html('');
         }
     });
-
+    
+//select restaurant or city
     $('.area').show();
     $('.loc').hide();
     $('#one').show();
@@ -53,7 +54,7 @@ $(document).ready(function () {
         }
     });
 
-
+//geolocation
     $(".placepicker").placepicker();
     $(".placepicker").each(function () {
         var target = this;
