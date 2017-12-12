@@ -71,7 +71,10 @@ class DashboardController extends Controller {
     }
     
     public function checkout() {
+//        dd('1');
         
+        
+        return redirect()->route('frontend.auth.logout');
     }
 
     public function logged_in_user_all_order() {
