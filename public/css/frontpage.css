@@ -509,8 +509,8 @@ form label {
 }
 .js-sticky-element{
     width: 183px;
-    position: fixed;
-    top: 20px;
+    /*position: fixed;*/
+    top: 40px;
 }
 .a-btn{
     background: #ddd;
@@ -625,7 +625,7 @@ article{
     margin-top: -12px;
     right: 0;
 }
- .fa-angle-right {
+.fa-angle-right {
     float: right;
     margin-right: 10px;
     display: inline-block;
@@ -634,3 +634,64 @@ article{
     margin-left: 45px;
     margin-right: 15px;
 }
+
+/*show page*/
+.cart-container {
+    width: 25%;
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #fff;
+    float:right;
+}
+.vendor-body-container {
+
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    margin-bottom: 20px;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,.1);
+}
+.vendor-menu__categories{
+    float: left;
+    margin-left: 25px;
+    background-color: #fff;
+}
+.vendor-menu__menus{
+    background: white;
+    min-height: 20px;
+    float: left;
+    width: 50%;
+    position: relative;
+
+}
+.menu__category {
+    margin-bottom: 50px;
+    margin-top: 0;
+}
+.menu__category__title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+    color: #1c2c3a;
+    text-transform: capitalize;
+}
+.menu-item {
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: 1px solid #ededed;
+}
+.menu-item__title {
+    color: #1c2c3a;
+    font-size: 14px;
+    font-weight: 400;
+    display: inline-block;
+    vertical-align: middle;
+}
+

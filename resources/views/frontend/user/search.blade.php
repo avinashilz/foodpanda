@@ -36,12 +36,12 @@
     </div>
 </div>
 <div class="row">
+
     <div class="col-sm-2" style="
          margin-left: 50px;
          ">
 
         <div class="row aside">
-
             <aside class="clearfix">
                 <div id="sticky-wrapper" class="sticky-wrapper">
                     <div class="js-sticky-element js-vendor-detail-menu-categories" data-sticky-bottom-margin="40" style="">
@@ -57,18 +57,15 @@
                     </div>
                 </div>
             </aside>
-
         </div>
-
     </div>
+
     <div id="restrosection" class='col-sm-8'>
-
-
         @foreach ($restaurants as $restro)
         <article class="vendor">
             <a class="vendor__inner" href="{{route('frontend.restaurantShow', $restro->id)}}">
                 <div class="vendor__image">
-                    <img src="{{$restro->image}}" height="80px" width="80px" /> <br> 
+                    <img src="{{ route('frontend.user.getentry', $restro->fileentry['filename'])}}" height="80px" width="80px" /> <br> 
                 </div>
                 <div class="vendor__details">
                     <div class="vendor__title">
@@ -79,10 +76,11 @@
                         <div class="clear"></div>
                     </div>
                     <ul class="vendor__cuisines">
-                        <li> North Indian </li>
-                        <li> Chinease </li>
-                        <li> Breads </li>
-                        <li> Snacks </li>
+                        <?php $count = 1; ?>
+                        @foreach($restro->items as $item)
+                        {{$item->category->categories}}
+                        <?php $count++; ?>
+                        @endforeach
                     </ul>
 
                     <div class="vendor__details__footer">
@@ -104,24 +102,17 @@
                                     </span>
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="clear"></div>
                     </div>
                 </div>
                 <div class="vendor__info">
-
                     delivers in <b> 60 mins </b>
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
-
                 </div>
             </a>
         </article>
         @endforeach
-
-
-
     </div>
 </div>
 @foreach($categoriesInSidebar as$cat)

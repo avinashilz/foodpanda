@@ -117,7 +117,7 @@
 
                                     <div class="panel-body">
 
-                                        <img src="/uploads/{{$restro->image}}" height="150px" width="288px" /> <br> 
+                                        <img src="{{ route('frontend.user.getentry', $restro->fileentry['filename'])}}" height="150px" width="288px" /> <br> 
                                         <h3> <a href="{{route('frontend.user.show', $restro->id)}}">
                                                 {{$restro->name}}</b>
                                             </a></h3>

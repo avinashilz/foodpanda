@@ -13,7 +13,9 @@
 </div>
 <div>
     <div class="row">
+       
         @foreach($restaurant as $restro)
+        
         <div class="col-sm-6 display"> 
             <h3> Restaurant Name : <b>
                     <a href="{{ route('admin.restaurants.show', $restro->id)}}">
