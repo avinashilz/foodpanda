@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Http\Response;
 
 
-class FileEntryController extends Controller
+class FileController extends Controller
 {
     public function get(Request $request, $filename) {
 //        dd($request->ajax());
