@@ -10,7 +10,7 @@ Route::get('restaurantsearchbyname', 'FrontendController@restaurantSearch')->nam
 Route::get('/restaurantsearch', 'FrontendController@restaurantsearchbygeolocation')->name('restaurantsearchbygeolocation');
 Route::get('/addItem/{itemid}', 'FrontendController@additem')->name('additem');
 Route::get('/showSelectedItem', 'FrontendController@showSelectedItem')->name('showSelectedItem');
-Route::get('file/get/{filename}', 'FileEntryController@get')->name('getentry');
+Route::get('file/get/{filename}', 'FileController@get')->name('getentry');
 
 
 Route::get('macros', 'FrontendController@macros')->name('macros');
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
         
         Route::get('/searchbygeolocation', 'DashboardController@searchbygeolocation')->name('searchbygeolocation');
         
-        Route::get('fileEntry/get/{filename}', 'FileEntryController@get')->name('getentry');
+        Route::get('fileEntry/get/{filename}', 'FileController@get')->name('getentry');
         
         Route::get('/checkout', 'DashboardController@checkout')->name('checkout');
         
