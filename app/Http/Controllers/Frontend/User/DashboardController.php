@@ -18,8 +18,8 @@ class DashboardController extends Controller {
 
     public function index() {
 
-        $restaurant = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'image')->get();
-
+        $restaurant = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'fileentry_id')->with('fileentry')->get();
+//dd($restaurant->toArray());
         return view('frontend.user.dashboard', compact('restaurant'));
     }
 
