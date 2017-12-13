@@ -47,15 +47,6 @@ class RestaurantsController extends Controller {
 
 
         if ($request->hasFile('image')) {
-//            $media = $request->file('image');
-//            $name = date('d-m-y-h-i-s-') . preg_replace('/\s+/', '-', trim($media->getClientOriginalName()));
-//            $destinationPath = public_path('/uploads');
-//            if (!file_exists($destinationPath)) {
-//                mkdir($destinationPath, 0777, true);
-//            }
-//            $request->file('image')->move($destinationPath, $name);
-//            $restaurant->image = $name;
-
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             Storage::disk('local')->put($file->getFileName() . '.' . $extension, File::get($file));
