@@ -50,7 +50,7 @@ class DashboardController extends Controller {
         $haversine = "(6371 * acos(cos(radians($latitude)) * cos(radians(latitude)) * cos(radians(longitude) - radians($longitude)) + sin(radians($latitude)) * sin(radians(latitude))))";
         $restaurants = $query = Restaurant::select('id', 'name', 'address', 'phone', 'contact_person', 'latitude', 'longitude')
                         ->selectRaw("{$haversine} AS distance")
-                        ->whereRaw("{$haversine} < ?", [$radius])->get();
+                        ->whereRaw("{$haversine} < ?", [$radius])->with('items.category')->get();
        
         return view('frontend.user.search', compact('restaurants'));
     }
