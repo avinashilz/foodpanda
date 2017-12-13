@@ -56,7 +56,7 @@ class DashboardController extends Controller {
     }
 
     public function show(int $restroid) {
-        $restaurantname =  Restaurant::where('id', $restroid)->select('name')->first();
+        $restaurantdetail = Restaurant::where('id', $restroid)->select('id','name', 'fileentry_id')->with('fileentry')->first();
 
         $categories = Category::whereHas('items', function ($query) use($restroid) {
                     $query->where('resturants_id', $restroid);
@@ -66,7 +66,7 @@ class DashboardController extends Controller {
 //                    dd($categories);
        
         
-        return view('frontend.user.show', compact('categories', 'restroid', 'restaurantname'));
+        return view('frontend.user.show', compact('categories', 'restroid', 'restaurantdetail'));
     }
     
     public function checkout() {

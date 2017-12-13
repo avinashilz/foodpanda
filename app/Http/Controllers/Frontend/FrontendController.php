@@ -56,8 +56,8 @@ class FrontendController extends Controller {
     }
 
     public function restaurantShow(int $restroid) {
-        $restaurantname = Restaurant::where('id', $restroid)->select('name')->first();
-//        dd($restaurantname->name);
+        $restaurantdetail = Restaurant::where('id', $restroid)->select('id','name', 'fileentry_id')->with('fileentry')->first();
+//        dd($restaurantname->toArray());
         $categories = Category::whereHas('items', function ($query) use($restroid) {
                     $query->where('resturants_id', $restroid);
                 })->with(['items' => function($query) use($restroid) {
@@ -66,7 +66,7 @@ class FrontendController extends Controller {
 //                    dd($categories->toArray());
 
 
-        return view('frontend.user.show', compact('categories', 'restroid', 'restaurantname'));
+        return view('frontend.user.show', compact('categories', 'restroid', 'restaurantdetail'));
     }
 
     public function additem(int $itemid, Request $request) {
