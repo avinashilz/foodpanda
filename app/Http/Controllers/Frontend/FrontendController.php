@@ -70,7 +70,7 @@ class FrontendController extends Controller {
     }
 
     public function additem(int $itemid, Request $request) {
-//        dd($restroid);
+//        dd($itemid);
         $qty = $request->qty;
 //        dd($qty);
         $item = Item::where('id', $itemid)->select('id', 'name', 'price')->first();
@@ -91,16 +91,7 @@ class FrontendController extends Controller {
             session()->push('additem', $itemadded);
 //            dump('2');
         }
-
-//            dump(session('additem'));
-//            session()->forget('additem');
-//            dd(session('additem'));
-
-        return back();
-    }
-
-    public function showSelectedItem() {
-
+        $detail = [];
         $detail = session('additem');
 
         $totalprice = 0;
@@ -114,6 +105,17 @@ class FrontendController extends Controller {
 
 //        return view('frontend.cart', compact('detail', 'totalprice'));
         return response()->json(['detail'=>$detail, 'totalprice' => $totalprice],200);
+
+//            dump(session('additem'));
+//            session()->forget('additem');
+//            dd(session('additem'));
+
+//        return back();
+    }
+
+    public function showSelectedItem() {
+
+        
     }
 
     /**
