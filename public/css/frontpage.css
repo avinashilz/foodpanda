@@ -734,21 +734,19 @@ article{
 
     text-decoration: none;
 }
-.restroList-page .restro-menu-list .restro-menu .restro-menu-links a:hover{
+.restro-menu .restro-menu-links a:hover{
     color:#5ee247;
 }
 .restro-menu{
     background: white;
-}
-.restroList-page .restro-menu-list .restro-menu .restro-menu-links{
-    padding-top: 10px;
-
-    border-bottom: 2px solid #f5f8fa;
+} .restro-menu .restro-menu-links{
+    padding-top: 20px;
+    border-bottom: 2px solid #ededed;
     padding-left: 10px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
 }
-.restroList-page .restro-menu-list .restro-menu .restro-menu-links a{
-    color:#d8d7db;
+.restro-menu .restro-menu-links a{
+    color:gray;
 }
 #app-layout .menu-food-category-list{
     padding-top: 22px;
@@ -756,7 +754,7 @@ article{
 }
 
 #app-layout .floating a{
-    color: #d5d8dc;
+    color: gray;
     text-decoration: none;
     font-size: 14px;
 
@@ -767,6 +765,9 @@ article{
 }
 .container .restro-menu .restroList .item-detail .item-price{
     float:right;
+}
+.refer{
+    text-transform: capitalize;
 }
 
 
@@ -783,11 +784,11 @@ article{
     color: #444;
 
 }
-.container .container-fluid .restro-head .restro-title li{
+.container-fluid .restro-head .restro-title li{
     padding-left: 4px;
 
 }
-.container .container-fluid .restro-head img{
+.container-fluid .restro-head img{
     width: 6%;
     height: 70px;
     margin-left: 587px;
@@ -795,33 +796,34 @@ article{
     border: 2px solid;
     border-radius: 7px;
 }
-.container .container-fluid .restro-head h1{
+.container-fluid .restro-head h1{
     color:red;
     margin-top:0;
 }
-.container .container-fluid .restro-head li{
+.container-fluid .restro-head li{
     float:left;
     list-style: none;
     display:inline;
 }
-.container .restroList-page .menu-links{
+.restroList-page .menu-links{
     padding-left: 119px;
     font-size: 14px;
     padding-top: 18px;
     padding-bottom: 17px;
 }
-.container .restroList-page .menu-links a{
+.restroList-page .menu-links a{
     color: #c7d1d1;
     padding-bottom: 10px;
 
     text-decoration: none;
 }
 .restroList{
-    float: right;
+    margin-left: 165px;
+    width: 83%;
 }
 .restro-menu{
     background: white;
-    border-right: 15px solid #f5f8fa;
+    border-right: 15px solid #ededed;
 }
 .restroList-page .restro-menu-list .restro-menu .restro-menu-links{
     padding-top: 10px;
@@ -835,27 +837,27 @@ article{
     text-decoration: none;
 }
 
-.container .restro-menu .restroList .item-detail {
-
+.restro-menu .restroList .item-detail {
+    border-bottom: 1px solid #ededed;
     padding-left: 0;
     padding-right: 0;
 }
-.container .restro-menu .restroList .item-detail .item-name{
+.restro-menu .restroList .item-detail .item-name{
     float:left;
 }
-.container .restro-menu .restroList .item-detail .item-price{
-    /*    float:left;*/
+.restro-menu .restroList .item-detail .item-price{
+    float: right;
     margin-top: 0;
 
 }
-.container .restro-menu .restroList .item-detail button i{
+.restro-menu .restroList .item-detail button i{
     border: 2px solid #99ce9f;
     border-radius: 86px;
     padding: 4px;
     color: #99ce9f;
     margin-left: 10px;
 }
-.container .restro-menu .restroList .item-detail button{
+.restro-menu .restroList .item-detail button{
     background: none;
     border-width: 0;
     /*    float:right;*/
@@ -918,7 +920,7 @@ article{
 
 
 #app-layout .my-order .handle-counter .btn {
-   padding: 1px 5px;
+    padding: 1px 5px;
     border: 1px solid transparent;
     color: #fff;
 }
@@ -941,5 +943,63 @@ article{
 
 #app-layout .my-order .handle-counter .btn-primary:hover, .btn-primary:focus {
     background-color: #0486b9;
+}
+#anchor, .item-name{
+    text-transform: capitalize;
+}
+/*vendor heading*/
+.vendor-heading {
+    text-align: center;
+    padding-top: 24px;
+}
+.vendor-heading .vendor-image {
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    width: 82px;
+    height: 82px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #8e969d;
+    border: solid 1px #fff;
+    background-color: rgba(255,255,255,.7);
+}
+.vendor-heading .vendor-image img {
+    border-radius: 5px;
+}
+.vendor-heading .vendor-heading-details-box-container {
+    position: relative;
+    z-index: 1;
+    margin-top: -10px;
+}
+.vendor-heading .vendor-heading-details-box-container .vendor-heading-details-box {
+    display: inline-block;
+    padding: 20px;
+    min-width: 300px;
+    background-color: rgba(255,255,255,.7);
+    border-radius: 5px;
+}
+.vendor-heading .vendor-heading-details-box-container .vendor-heading-details-box .vendor__title h1 {
+    margin: 0;
+    font-weight: 300;
+    color: #ea5b31;
+}
+.vendor__cuisines {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+.vendor__cuisines li {
+    padding: 0;
+    display: inline-block;
+    text-transform: capitalize;
+}
+.vendor-heading .vendor-heading-details-box-container .vendor-heading-details-box .vendor__ratings-container {
+    margin: -20px;
+    margin-top: 20px;
+    padding: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgba(255,255,255,.7);
 }
 

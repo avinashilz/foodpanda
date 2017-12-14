@@ -70,7 +70,7 @@ $(document).ready(function () {
     $('.refer').on('click', function (e) {
         var jump = $(this).attr('href');
         var new_position = $(jump).offset();
-        $('html, body').stop().animate({scrollTop: new_position.top}, 1000);
+        $('html, body').stop().animate({scrollTop: new_position.top}, 400);
         e.preventDefault();
     });
     $('.menu-food-category-list').floatit();
@@ -123,10 +123,10 @@ $(document).ready(function () {
                 name: Name,
                 price: Price
             },
-            success: function (items) {
+            success: function (response) {
                 
                 $(".basket p").html('');
-                $.each(items, function (i, v) {
+                $.each(response, function (i, v) {
                     $(".basket p").append( v.name + v.price );
                 });
             },

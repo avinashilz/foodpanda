@@ -2,29 +2,55 @@
 @section('content')
 <div class="vendors-heading-container">
     <div class="container">
-        <div class="vendors-heading">
-            <h1>
-                Order  from 79 restaurants
-            </h1>
-            <h2>delivering to your door</h2>
-            <h2>  {{$restaurantdetail->name}} 
-                <img src="{{ route('frontend.user.getentry', $restaurantdetail->fileentry['filename'])}}" />
-            </h2>
-        </div>
-    </div>
+        <!--        <div class="vendors-heading">
+                    <h1>
+                        Order  from 79 restaurants
+                    </h1>
+                    <h2>delivering to your door</h2>
+                    <h2>  {{$restaurantdetail->name}} 
+                        <img src="{{ route('frontend.user.getentry', $restaurantdetail->fileentry['filename'])}}" />
+                    </h2>
+                </div>-->
+        <div class="vendor-heading">
+            <div class="vendor-image">
+                <img src="{{ route('frontend.user.getentry', $restaurantdetail->fileentry['filename'])}}" width="80px" height="80px" />
+            </div>
 
-    <div class="location-header">
-        <div class="container">
+            <div class="vendor-heading-details-box-container">
+                <div class="vendor-heading-details-box">
+                    <div class="vendor__title">
+                        <h1 itemprop="name"> {{$restaurantdetail->name}} </h1>
+                    </div>
 
-            <span class="location-address-container">
-                <i class="icon icon-location"></i>
+                    <ul class="vendor__cuisines">
+                        <?php $count = 1; ?>
+                        @foreach($categories as $category)
+                        <li itemprop="servesCuisine">{{$category->categories}}</li>
+                        @if($count==4)
+                        @break;
+                        @endif
+                        <?php $count++; ?>
+                        @endforeach
+                    </ul>
 
-                {{$restaurantdetail->name}} can deliver to you at Sector 71
-            </span>
+                    <div class="vendor__ratings-container">
+
+                        <div class="vendor__ratings">
 
 
-            <a href="/" class="btn btn-primary btn-sm btn-alt change-location-link js-change-location-link">Change location</a>
+                            <div class="rating  ">
 
+
+                                <div class="rateit" data-rateit-value="2.5" data-rateit-ispreset="true" data-rateit-readonly="true"></div>
+                                <span class="review">
+                                    (<span>172</span>)
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -48,7 +74,7 @@
             <div class="info-link col-sm-1"><a href="#">Info</a></div>
         </div>
         <div class="col-sm-12">
-           
+
             <div class="menu-food-category-list col-sm-4">
                 @foreach($categories as $category)
                 <a href="#anchor"  class="refer"> {{$category->categories}} </a><br>    
@@ -57,17 +83,21 @@
             <div class=" restroList col-sm-8">
                 @foreach($categories as $category)
                 <h2 id="anchor">{{$category->categories}}</h2>
-            
-                
-               @foreach($category->items as $item)
+
+
+                @foreach($category->items as $item)
                 <div class="item-detail col-sm-12">
                     <h5 class="item-name">   {{$item['name']}}</h5>
-                    <h5 class="item-price">Rs.{{$item['price']}} </h5>
-                        <a href="{{route('frontend.additem',$item['id'])}}" class="additem"><button>  <i class="fa fa-plus" aria-hidden="true"></i></button></a>
+                    <h5 class="item-price">Rs.{{$item['price']}} 
+                        <a href="{{route('frontend.additem',$item->id)}}" class="additem">
+                            {{Form::button(' <i class="fa fa-plus" aria-hidden="true"></i>',array('type' => 'submit', 'class' => ''))}}
+
+                        </a> </h5>
                 </div>
                 @endforeach
                 @endforeach
             </div>
+
         </div>
     </div>
     <div class="my-order col-sm-3">
@@ -78,9 +108,9 @@
             </h2>
         </div>
         <div class="basket">
-            
-            <p> add</p>
-            
+
+            <p> add to cart</p>
+
             <a href="#"> <button>PROCEED TO CHECKOUT</button></a>
         </div>
     </div>
