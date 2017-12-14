@@ -56,7 +56,7 @@ class FrontendController extends Controller {
     }
 
     public function restaurantShow(int $restroid) {
-        $restaurantdetail = Restaurant::where('id', $restroid)->select('id','name', 'fileentry_id')->with('fileentry')->first();
+        $restaurantdetail = Restaurant::where('id', $restroid)->select('id', 'name', 'fileentry_id')->with('fileentry')->first();
 //        dd($restaurantname->toArray());
         $categories = Category::whereHas('items', function ($query) use($restroid) {
                     $query->where('resturants_id', $restroid);
@@ -79,6 +79,7 @@ class FrontendController extends Controller {
         $itemadded = [];
         $itemadded['id'] = $item->id;
         $itemadded['name'] = $item->name;
+        $itemadded['price'] = $item->price;
         $itemadded['quantity'] = $qty;
         $itemadded['totalprice'] = $totalprice;
 //        dd($itemadded);
@@ -98,24 +99,25 @@ class FrontendController extends Controller {
         foreach ($detail as $d) {
             $price = $d['totalprice'];
             $totalprice += $price;
-//                $totalprice[] = $price;
         }
-//        dd($totalprice);
-
-
-//        return view('frontend.cart', compact('detail', 'totalprice'));
-        return response()->json(['detail'=>$detail, 'totalprice' => $totalprice],200);
-
-//            dump(session('additem'));
-//            session()->forget('additem');
-//            dd(session('additem'));
+     
+        return response()->json(['detail' => $detail, 'totalprice' => $totalprice], 200);
 
 //        return back();
     }
 
     public function showSelectedItem() {
+         $detail = session('additem');
 
-        
+        $totalprice = 0;
+        foreach ($detail as $d) {
+            $price = $d['totalprice'];
+            $totalprice += $price;
+//                $totalprice[] = $price;
+        }
+//        dd($totalprice);
+        return view('frontend.cart', compact('detail', 'totalprice'));
+//        return response()->json(['detail' => $detail, 'totalprice' => $totalprice], 200);
     }
 
     /**

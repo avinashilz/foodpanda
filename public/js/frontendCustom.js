@@ -16,7 +16,6 @@ $(document).ready(function () {
                     $.each(response, function (i, v) {
                         $('#searchResults').append('<li><a href="' + restaurantUrl + '/' + v.id + '">' + v.name + '</a></li>');
                     });
-
                 },
                 error: function (err) {
 
@@ -27,13 +26,11 @@ $(document).ready(function () {
             $('#searchResults').html('');
         }
     });
-
 //select restaurant or city
     $('.area').show();
     $('.loc').hide();
     $('#one').show();
     $('#two').hide();
-
     $('select[name="size"]').change(function () {
         console.log($(this).val());
         if ($(this).val() === "restaurant") {
@@ -49,11 +46,8 @@ $(document).ready(function () {
             $('.loc').show();
             $('#one').hide();
             $('#two').show();
-
-
         }
     });
-
 //geolocation
     $(".placepicker").placepicker();
     $(".placepicker").each(function () {
@@ -76,8 +70,6 @@ $(document).ready(function () {
     $('.menu-food-category-list').floatit();
     $('.my-order').floatit();
     $('.food-category-list').floatit();
-
-
 //    var stickyHeaderTop = $('#sticky-wrapper').offset().top;
 //    $(window).scroll(function () {
 //        if ($(window).scrollTop() > stickyHeaderTop - 40) {
@@ -87,34 +79,14 @@ $(document).ready(function () {
 //        }
 //    });
 
-// var stickyHeaderTop = $('.menu-food-category-list').offset().top;
-//    $(window).scroll(function () {
-//        if ($(window).scrollTop() > stickyHeaderTop - 40) {
-//            $('#sticky-wrapper').css({position: 'fixed', top: '40px'});
-//        } else {
-//            $('#sticky-wrapper').css({position: 'relative', top: '0px'});
-//        }
-//    });
-// var stickySideBar = $('.cart-container').offset().top;
-//    $(window).scroll(function () {
-//        if ($(window).scrollTop() > stickySideBar - 40) {
-//            $('.cart-container').css({position: 'fixed', top: '40px'});
-//        } else {
-//            $('.cart-container').css({position: 'relative', top: '0px'});
-//        }
-//    });
+
 
     $('.additem').on('click', function (e) {
         e.preventDefault();
         var Name = $(this).siblings(':first').text();
-        console.log(Name);
-        
         var Price = $(this).prev().text();
-          console.log(Price);
-        
         var urlsearch = $(this).attr('href');
         console.log(urlsearch);
-
         $.ajax({
             url: urlsearch,
             dataType: 'json',
@@ -124,18 +96,51 @@ $(document).ready(function () {
                 price: Price
             },
             success: function (response) {
-                
                 $(".basket p").html('');
-                $.each(response, function (i, v) {
-                    $(".basket p").append( v.name + v.price );
+                $.each(response.detail, function (i, v) {
+                    console.log(v);
+                    $(".basket p").append('<div class="handle-counter" id="handleCounter">\n\
+<button class="counter-minus btn">-</button> <input id="qty" type="number" min="1" max="50" value="1"><button class="counter-plus btn">+</button> <div class="name-item">' + v.name + '</div>' + '<div class="price-item">' + v.price + '</div>' + '<br>');
                 });
+//                var number = $('#qty').val();
+//                console.log(number);
             },
-              error: function (err) {
-
-                }
+            error: function (err) {
+            }
         });
     });
+    $('.counter-plus btn').on('click', function (e) {
+        e.preventDefault();
+        var number = $(this).prev().val();
 
-   
-});
+        $.ajax({
+            dataType: 'json',
+            type: 'get',
+            data: {
+                number: number
+            },
+            success: function (response) {
+                $.each(response, function (i, v) {
+                    console.log(v.number);
+                });
+            }
+        });
+    });
+    $('#clear').on('click', function () {
+        $(".basket p").empty();
+    });
+    var num = 1;
+    $(document).on('click', '.counter-plus', function () {
+
+        $(this).prev().val(++num);
+    });
+    $(document).on('click', '.counter-minus', function (e) {
+        if ($(this).next().val() === 1) {
+            e.preventDefault();
+        } else if ($(this).next().val() > 1) {
+            $(this).next().val(--num);
+        }
+    });
+})
+        ;
         

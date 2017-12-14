@@ -1003,3 +1003,15 @@ article{
     background-color: rgba(255,255,255,.7);
 }
 
+/*order now*/
+.added{width:100%;}
+.added, .quantity, .name-item{
+    float: left;
+}
+.price-item{float:right;}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -97,7 +97,6 @@
                 @endforeach
                 @endforeach
             </div>
-
         </div>
     </div>
     <div class="my-order col-sm-3">
@@ -110,7 +109,8 @@
         <div class="basket">
 
             <p> add to cart</p>
-
+            <button id="clear">x</button>
+          
             <a href="#"> <button>PROCEED TO CHECKOUT</button></a>
         </div>
     </div>
@@ -219,7 +219,7 @@
 
 <!--old page-->
 
-<!--<div>
+<div>
 
     @foreach($categories as $category)
 
@@ -259,6 +259,6 @@
 
     @endforeach
 
-</div>-->
+</div>
 
 @endsection
