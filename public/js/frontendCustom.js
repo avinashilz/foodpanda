@@ -1,4 +1,4 @@
-$(document).ready(function () {  
+$(document).ready(function () {
     $('#areaSearch').on('keyup', function () {
         var keyword = $(this).val();
         var searchUrl = $(this).data('url');
@@ -27,7 +27,7 @@ $(document).ready(function () {
             $('#searchResults').html('');
         }
     });
-    
+
 //select restaurant or city
     $('.area').show();
     $('.loc').hide();
@@ -68,4 +68,22 @@ $(document).ready(function () {
         }).data('placepicker');
     });
 
+    var stickyHeaderTop = $('#sticky-wrapper').offset().top;
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > stickyHeaderTop - 40) {
+            $('#sticky-wrapper').css({position: 'fixed', top: '40px'});
+        } else {
+            $('#sticky-wrapper').css({position: 'relative', top: '0px'});
+        }
+    });
+
+// var stickySideBar = $('.cart-container').offset().top;
+//    $(window).scroll(function () {
+//        if ($(window).scrollTop() > stickySideBar - 40) {
+//            $('.cart-container').css({position: 'fixed', top: '40px'});
+//        } else {
+//            $('.cart-container').css({position: 'relative', top: '0px'});
+//        }
+//    });
 });
+        
