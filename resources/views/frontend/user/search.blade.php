@@ -78,7 +78,10 @@
                     <ul class="vendor__cuisines">
                         <?php $count = 1; ?>
                         @foreach($restro->items as $item)
-                        {{$item->category->categories}}
+                        <li> {{$item->category->categories}} </li>
+                        @if($count==3)
+                        @break;
+                        @endif
                         <?php $count++; ?>
                         @endforeach
                     </ul>

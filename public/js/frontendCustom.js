@@ -67,16 +67,34 @@ $(document).ready(function () {
             }
         }).data('placepicker');
     });
-
-    var stickyHeaderTop = $('#sticky-wrapper').offset().top;
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > stickyHeaderTop - 40) {
-            $('#sticky-wrapper').css({position: 'fixed', top: '40px'});
-        } else {
-            $('#sticky-wrapper').css({position: 'relative', top: '0px'});
-        }
+    $('.refer').on('click', function (e) {
+        var jump = $(this).attr('href');
+        var new_position = $(jump).offset();
+        $('html, body').stop().animate({scrollTop: new_position.top}, 1000);
+        e.preventDefault();
     });
+    $('.menu-food-category-list').floatit();
+    $('.my-order').floatit();
+    $('.food-category-list').floatit();
 
+
+//    var stickyHeaderTop = $('#sticky-wrapper').offset().top;
+//    $(window).scroll(function () {
+//        if ($(window).scrollTop() > stickyHeaderTop - 40) {
+//            $('#sticky-wrapper').css({position: 'fixed', top: '40px'});
+//        } else {
+//            $('#sticky-wrapper').css({position: 'relative', top: '0px'});
+//        }
+//    });
+
+// var stickyHeaderTop = $('.menu-food-category-list').offset().top;
+//    $(window).scroll(function () {
+//        if ($(window).scrollTop() > stickyHeaderTop - 40) {
+//            $('#sticky-wrapper').css({position: 'fixed', top: '40px'});
+//        } else {
+//            $('#sticky-wrapper').css({position: 'relative', top: '0px'});
+//        }
+//    });
 // var stickySideBar = $('.cart-container').offset().top;
 //    $(window).scroll(function () {
 //        if ($(window).scrollTop() > stickySideBar - 40) {
@@ -85,5 +103,39 @@ $(document).ready(function () {
 //            $('.cart-container').css({position: 'relative', top: '0px'});
 //        }
 //    });
+
+    $('.additem').on('click', function (e) {
+        e.preventDefault();
+        var Name = $(this).siblings(':first').text();
+        console.log(Name);
+        
+        var Price = $(this).prev().text();
+          console.log(Price);
+        
+        var urlsearch = $(this).attr('href');
+        console.log(urlsearch);
+
+        $.ajax({
+            url: urlsearch,
+            dataType: 'json',
+            type: 'get',
+            data: {
+                name: Name,
+                price: Price
+            },
+            success: function (items) {
+                
+                $(".basket p").html('');
+                $.each(items, function (i, v) {
+                    $(".basket p").append( v.name + v.price );
+                });
+            },
+              error: function (err) {
+
+                }
+        });
+    });
+
+   
 });
         

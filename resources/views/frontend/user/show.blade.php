@@ -38,7 +38,56 @@
     </div>
 </div>
 
-<div class="row">
+<div class=" restro-menu-list col-sm-12">
+
+    <div class="col-sm-1"></div>
+    <div class="restro-menu col-sm-8">
+        <div class="restro-menu-links col-sm-12">
+            <div class="restro-menu-link col-sm-1"><a href="#">Menu</a></div>
+            <div class="review -link col-sm-1"><a href="#">Reviews</a></div>
+            <div class="info-link col-sm-1"><a href="#">Info</a></div>
+        </div>
+        <div class="col-sm-12">
+           
+            <div class="menu-food-category-list col-sm-4">
+                @foreach($categories as $category)
+                <a href="#anchor"  class="refer"> {{$category->categories}} </a><br>    
+                @endforeach
+            </div>
+            <div class=" restroList col-sm-8">
+                @foreach($categories as $category)
+                <h2 id="anchor">{{$category->categories}}</h2>
+            
+                
+               @foreach($category->items as $item)
+                <div class="item-detail col-sm-12">
+                    <h5 class="item-name">   {{$item['name']}}</h5>
+                    <h5 class="item-price">Rs.{{$item['price']}} </h5>
+                        <a href="{{route('frontend.additem',$item['id'])}}" class="additem"><button>  <i class="fa fa-plus" aria-hidden="true"></i></button></a>
+                </div>
+                @endforeach
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="my-order col-sm-3">
+
+        <div class="order-title">
+            <h2> 
+                Your Order
+            </h2>
+        </div>
+        <div class="basket">
+            
+            <p> add</p>
+            
+            <a href="#"> <button>PROCEED TO CHECKOUT</button></a>
+        </div>
+    </div>
+</div>
+
+<!--new page-->
+<!--<div class="row">
 
     <div class="vendor-body-container">
 
@@ -71,7 +120,7 @@
                     <form action="{{route('frontend.additem', $item->id)}}" method="GET">
 
                         {{ csrf_field() }}
-                        <!--                        <div class="menu__category__title">  </div>-->
+                                                <div class="menu__category__title">  </div>
                         <article class="menu-item">
                             <div class="menu-item__title">{{$item->name}} </div>
                             <div class="menu-item__variation__price ">{{$item->price}}  </div>
@@ -136,15 +185,11 @@
         </div>
     </div>
 
-</div>
+</div>-->
 
+<!--old page-->
 
-
-
-
-
-
-<div>
+<!--<div>
 
     @foreach($categories as $category)
 
@@ -184,6 +229,6 @@
 
     @endforeach
 
-</div>
+</div>-->
 
 @endsection

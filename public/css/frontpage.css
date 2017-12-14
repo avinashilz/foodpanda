@@ -695,3 +695,251 @@ article{
     vertical-align: middle;
 }
 
+/*new css*/
+.container .container-fluid .restro-head{
+    text-align: center;
+}
+
+.container .container-fluid .restro-head .restro-title{
+    background: transparent;
+    width: 17%;
+    margin-left: 522px;
+}
+.container .container-fluid .restro-head img{
+    width: 6%;
+    height: 70px;
+    margin-left: 587px;
+    margin-top: 51px;
+    border: 2px solid;
+    border-radius: 7px;
+}
+.container .container-fluid .restro-head h1{
+    color:red;
+    margin-top:0;
+}
+.container .container-fluid .restro-head li{
+    float:left;
+    list-style: none;
+    display:inline;
+}
+.container .restroList-page .menu-links{
+    padding-left: 119px;
+    font-size: 14px;
+    padding-top: 18px;
+    padding-bottom: 17px;
+}
+.container .restroList-page .menu-links a{
+    color: #c7d1d1;
+    padding-bottom: 10px;
+
+    text-decoration: none;
+}
+.restroList-page .restro-menu-list .restro-menu .restro-menu-links a:hover{
+    color:#5ee247;
+}
+.restro-menu{
+    background: white;
+}
+.restroList-page .restro-menu-list .restro-menu .restro-menu-links{
+    padding-top: 10px;
+
+    border-bottom: 2px solid #f5f8fa;
+    padding-left: 10px;
+    padding-bottom: 8px;
+}
+.restroList-page .restro-menu-list .restro-menu .restro-menu-links a{
+    color:#d8d7db;
+}
+#app-layout .menu-food-category-list{
+    padding-top: 22px;
+    width: 20.3333%;
+}
+
+#app-layout .floating a{
+    color: #d5d8dc;
+    text-decoration: none;
+    font-size: 14px;
+
+
+}
+.container .restro-menu .restroList .item-detail .item-name{
+    float:left;
+}
+.container .restro-menu .restroList .item-detail .item-price{
+    float:right;
+}
+
+
+
+
+.container .container-fluid .restro-head .restro-title{
+
+    width: 19%;
+    margin-left: 522px;
+    border: 0;
+    background: rgba(255,255,255,0.5);
+
+    border-radius: 4px;
+    color: #444;
+
+}
+.container .container-fluid .restro-head .restro-title li{
+    padding-left: 4px;
+
+}
+.container .container-fluid .restro-head img{
+    width: 6%;
+    height: 70px;
+    margin-left: 587px;
+    margin-top: 51px;
+    border: 2px solid;
+    border-radius: 7px;
+}
+.container .container-fluid .restro-head h1{
+    color:red;
+    margin-top:0;
+}
+.container .container-fluid .restro-head li{
+    float:left;
+    list-style: none;
+    display:inline;
+}
+.container .restroList-page .menu-links{
+    padding-left: 119px;
+    font-size: 14px;
+    padding-top: 18px;
+    padding-bottom: 17px;
+}
+.container .restroList-page .menu-links a{
+    color: #c7d1d1;
+    padding-bottom: 10px;
+
+    text-decoration: none;
+}
+.restroList{
+    float: right;
+}
+.restro-menu{
+    background: white;
+    border-right: 15px solid #f5f8fa;
+}
+.restroList-page .restro-menu-list .restro-menu .restro-menu-links{
+    padding-top: 10px;
+
+    border-bottom: 2px solid #f5f8fa;
+    padding-left: 0;
+    padding-bottom: 8px;
+}
+.restroList-page .restro-menu-list .restro-menu .restro-menu-links a{
+    color:#d8d7db;
+    text-decoration: none;
+}
+
+.container .restro-menu .restroList .item-detail {
+
+    padding-left: 0;
+    padding-right: 0;
+}
+.container .restro-menu .restroList .item-detail .item-name{
+    float:left;
+}
+.container .restro-menu .restroList .item-detail .item-price{
+    /*    float:left;*/
+    margin-top: 0;
+
+}
+.container .restro-menu .restroList .item-detail button i{
+    border: 2px solid #99ce9f;
+    border-radius: 86px;
+    padding: 4px;
+    color: #99ce9f;
+    margin-left: 10px;
+}
+.container .restro-menu .restroList .item-detail button{
+    background: none;
+    border-width: 0;
+    /*    float:right;*/
+}
+
+
+
+#app-layout .my-order {
+    background-color: #fff;
+
+
+
+}    
+
+#app-layout .floating .order-title{
+    border-bottom: 2px solid #f5f8fa; 
+}
+
+#app-layout .floating .order-title h2{
+    font-size: 22px;
+    margin-bottom: 7px;
+    margin-top: 10px;
+}
+#app-layout .floating .basket{
+    text-align:center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#app-layout .basket button{
+    color: white;
+    /*background: #5ee247;*/
+    border-width: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#app-layout .my-order .handle-counter {
+    overflow: hidden; 
+}
+#app-layout .my-order .handle-counter .counter-minus,  .handle-counter .counter-plus,  .handle-counter input {
+    float: left;
+    text-align: center;
+}
+#app-layout .my-order .handle-counter .counter-minus,  .handle-counter .counter-plus { 
+    text-align: center; 
+}
+
+
+
+#app-layout .my-order .handle-counter input {
+    width: 26px;
+    border-width: 1px;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 13px;
+
+}
+
+
+
+#app-layout .my-order .handle-counter .btn {
+   padding: 1px 5px;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+
+
+#app-layout .my-order .handle-counter .btn:disabled, .btn:disabled:hover {
+    background-color: darkgrey;
+    cursor: not-allowed;
+
+}
+
+
+
+#app-layout .my-order .handle-counter .btn-primary { 
+    background-color: #009dda;
+}
+
+
+
+#app-layout .my-order .handle-counter .btn-primary:hover, .btn-primary:focus {
+    background-color: #0486b9;
+}
+
