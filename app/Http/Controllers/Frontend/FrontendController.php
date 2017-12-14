@@ -112,7 +112,8 @@ class FrontendController extends Controller {
 //        dd($totalprice);
 
 
-        return view('frontend.cart', compact('detail', 'totalprice'));
+//        return view('frontend.cart', compact('detail', 'totalprice'));
+        return response()->json(['detail'=>$detail, 'totalprice' => $totalprice],200);
     }
 
     /**
