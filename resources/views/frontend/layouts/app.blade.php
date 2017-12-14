@@ -23,17 +23,17 @@
         @else
         {{ Html::style('http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')}}
 
-       
-        
+
+
         {{html::style('css/fontawesome.min.css')}}
         {{Html::style('css/rateit.css')}}
-         {{ Html::style('css/frontend.css') }}
-         {{Html::style('css/frontpage.css')}}
+        {{ Html::style('css/frontend.css') }}
+        {{Html::style('css/frontpage.css')}}
 
         {{Html::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')}}
         {{Html::script('https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')}}
         {{Html::script('https://maps.googleapis.com/maps/api/js?sensor=true&language=en&libraries=places&key=AIzaSyB8XfIcDmOOohpUF9QlJL8nrJIrFgT35C4')}}
-        
+
         @endif
 
         @yield('after-styles')
@@ -64,6 +64,8 @@ echo json_encode([
         {!! Html::script('js/jquery.placepicker.js') !!}
         {!!Html::script('js/jquery.rateit.min.js') !!}
         {!! Html::script('js/frontendCustom.js') !!}
+         {!! Html::script(('js/floatit.js')) !!}
+        {!! Html::script('js/handleCounter.js') !!}
         @yield('after-scripts')
 
         @include('includes.partials.ga')
