@@ -1,5 +1,4 @@
 @extends('frontend.layouts.app')
-
 @section('content')
 <div class="container">
 
@@ -39,7 +38,6 @@
                     <input id="latitude" name="latitude" type="hidden" value="">
                     <input id="longitude" name="longitude" type="hidden" value="">
                 </div>
-
                 <div class="find-food">
                     {{ Form::submit('Show restaurants',['class' => 'btn btn-primary btn-block'])}}
                     {{ Form::close() }}
